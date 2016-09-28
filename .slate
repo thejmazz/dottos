@@ -1,0 +1,83 @@
+# Slate
+
+# === CONFIG ===
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+
+config repeatOnHoldOps resize,nudge
+config secondsBeforeRepeat 0.4
+config secondsBetweenRepeat 0.01
+
+# === ALIASES ===
+
+alias center move screenSizeX/2-newWindowSizeX/2;screenSizeY/2-newWindowSizeY/2 windowSizeX;windowSizeY
+alias buffer 15
+
+# === BINDINGS ===
+
+# allowed modifiers:
+# alt, cmd, ctrl, shift
+
+# hjkl bindings:
+# alt, cmd -> push to edges
+# alt, ctrl -> focus windows
+# alt, shift -> used for special characters: hjkl:ÓÔÒ; nudging
+# cmd, ctrl -> push to edges and resize
+# cmd, shift -> resize with top-left
+# ctrl, shift -> btt, focus behind
+# cmd, ctrl, shift -> resize with bottom-right
+
+# push to edges
+bind h:alt,cmd move ${buffer};windowTopLeftY windowSizeX;windowSizeY
+bind j:alt,cmd move windowTopLeftX;screenSizeY-windowSizeY-${buffer} windowSizeX;windowSizeY
+bind k:alt,cmd move windowTopLeftX;${buffer} windowSizeX;windowSizeY
+bind l:alt,cmd move screenSizeX-windowSizeX-${buffer};windowTopLeftY windowSizeX;windowSizeY
+# "push" to center
+bind c:alt,cmd    ${center}
+
+# push to edge and maximize width
+bind h:alt,ctrl,cmd move 0;windowTopLeftY  screenSizeX;windowSizeY
+bind l:alt,ctrl,cmd move 0;windowTopLeftY  screenSizeX;windowSizeY
+
+bind m:alt,ctrl,cmd move windowTopLeftX;windowTopLeftY screenSizeX*0.8;screenSizeY*0.7 ${center}
+
+# focus
+# hjkl:alt,ctrl
+# similar to nnoremap <c-j> <c-w><c-j> vim mappings
+bind h:alt,ctrl    focus left
+bind j:alt,ctrl    focus down
+bind k:alt,ctrl    focus up
+bind l:alt,ctrl    focus right
+# h:ctrl,shift and l:ctrl,shift used in btt to move window across spaces
+bind k:ctrl,shift  focus behind
+bind j:ctrl,shift  focus behind
+
+# push to edges and resize to half
+# hjkl:cmd,ctrl
+bind h:cmd,ctrl     push left  bar-resize:screenSizeX/2
+bind j:cmd,ctrl     push down  bar-resize:screenSizeY/2
+bind k:cmd,ctrl     push up    bar-resize:screenSizeY/2
+bind l:cmd,ctrl     push right bar-resize:screenSizeX/2
+
+# resize
+bind h:cmd,shift    resize -5% +0
+bind j:cmd,shift    resize +0 +5%
+bind k:cmd,shift    resize +0 -5%
+bind l:cmd,shift    resize +5% +0
+bind h:alt,cmd,shift    resize +5% +0 bottom-right
+bind j:alt,cmd,shift    resize +0 -5% bottom-right
+bind k:alt,cmd,shift    resize +0 +5% bottom-right
+bind l:alt,cmd,shift    resize -5% +0 bottom-right
+
+# Nudge
+bind h:alt,shift    nudge -5% +0
+bind j:alt,shift    nudge +0 +5%
+bind k:alt,shift    nudge +0 -5%
+bind l:alt,shift    nudge +5% +0
+
+# Grid
+bind g:alt grid padding:5 1680x1050:3,3
+
+# Window Hints
+bind esc:cmd hint
