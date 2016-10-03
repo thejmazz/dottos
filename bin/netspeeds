@@ -1,0 +1,7 @@
+#!/bin/bash
+
+speds=`ifstat -i en0 -z -q 1 1 | tail -n 1`
+in=`echo $speds | awk '{print $1}'`
+out=`echo $speds | awk '{print $2}'`
+echo ↓$in ↑$out
+
