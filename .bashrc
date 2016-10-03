@@ -122,7 +122,7 @@ set -o vi
 
 alias node6="docker run --rm -it -w /usr/src/app -v `pwd`:/usr/src/app node:6.2.0 node"
 
-export NVM_DIR="/Users/jmazz/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh"  ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # for npm chalk
