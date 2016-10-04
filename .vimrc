@@ -1,10 +1,6 @@
 set nocompatible
 filetype off
 
-if empty(glob("~/.vim/bundle/Vundle.vim"))
-    silent! execute '!git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
-endif
-
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " Vundle, the plug-in manager for Vim
