@@ -1,0 +1,56 @@
+# Add personal binaries to PATH
+export PATH="$PATH:$HOME/bin"
+
+# Add LaTeX to INFOPATH
+export INFOPATH="$INFOPATH:/usr/local/texlive/2014/texmf-dist/doc/info"
+# Add LaTeX to MANPATH
+export MANPATH="$MANPATH:/usr/local/texlive/2014/texmf-dist/doc/man"
+# Add LaTeX to PATH
+export PATH="$PATH:/usr/local/texlive/2014/bin/x86_64-darwin"
+
+# Node and NPM
+export NPM_PACKAGES="$HOME/node/npm-packages"
+export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+# Make local binaries available before global ones
+export PATH="$PATH:$NPM_PACKAGES/bin:$HOME/node/bin"
+export MANPATH="$NPM_PACKAGES/share/man:$MANPATH"
+# export PATH="$PATH:$(npm bin)"
+export PATH="$PATH:./node_modules/.bin"
+
+# GoLang
+export PATH="$PATH:/usr/local/go/bin"
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
+
+# Postgres.app
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
+
+# PCRE
+export PATH="$PATH:/usr/local/pcre/bin"
+
+# samtools
+export PATH="$PATH:$HOME/bin/samtools/bin"
+
+# breseq
+export PATH="$PATH:/usr/local/breseq-0.26.1-MacOSX-10.7+/bin"
+
+# bowtie
+export PATH="$PATH:/usr/local/bowtie2-2.2.6/"
+
+# phylip
+export PATH="$PATH:/usr/local/phylip-3.695"
+
+# Blender
+# export PATH="$PATH:/Users/jmazz/Library/Application Support/Steam/steamapps/common/Blender/blender.app/Contents/MacOS"
+
+export DRONE_SERVER="http://drone.stockrender.com:8080"
+export DRONE_TOKEN="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZXh0IjoiU3RvY2tSZW5kZXIxODIiLCJ0eXBlIjoidXNlciJ9.7tGlJytQB44IhN_xar0WSj_0tkzgwL07ZKw1fqB8JFc"
+
+# SRA toolkit
+export PATH="$PATH:$HOME/bin/sratk"
+
+# htslib
+export PATH="$PATH:$HOME/bin/htslib/bin"
+# bcftools
+export PATH="$PATH:$HOME/bin/bcftools/bin"
+
