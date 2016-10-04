@@ -1,6 +1,10 @@
 set nocompatible
 filetype off
 
+if empty(glob("~/.vim/bundle/Vundle.vim"))
+    silent! execute '!git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
+endif
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " Vundle, the plug-in manager for Vim
@@ -17,6 +21,8 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'tpope/vim-fugitive'
 " airline: lean & mean status/tabline for vim that's light as air
 Plugin 'bling/vim-airline'
+" A collection of themes for vim-airline
+Plugin 'https://github.com/vim-airline/vim-airline-themes'
 " snipmate: support for textual snippets
 Plugin 'garbas/vim-snipmate'
 " snippets: vim-snipmate default snippets
@@ -274,7 +280,8 @@ set background=dark
 "highlight LineNr ctermfg=170 ctermbg=232
 "highlight Comment ctermfg=145
 " Color column
-colorscheme seattle
+" Run with silent! since it will fail until PluginInstall is done
+silent! colorscheme seattle
 "highlight ColorColumn ctermbg=111
 
 " === Custom Highlights ===
