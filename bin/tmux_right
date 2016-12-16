@@ -1,0 +1,48 @@
+#!/bin/bash
+
+ICON="#[fg=colour7,bg=colour1]"
+ITEM="#[fg=colour0,bg=colour7]"
+RESET="#[fg=default,bg=default]"
+
+NETSPEEDS() {
+    # wifi
+    speeds=`ifstat -i en0 -z -q 1 1 | tail -n 1`
+    in=`echo $speeds | awk '{print $1}'`
+    out=`echo $speeds | awk '{print $2}'`
+
+    # ethernet
+    if [ $in == "0.00" ] && [ $out == "0.00" ]; then
+        speeds=`ifstat -i en5 -z -q 1 1 | tail -n 1`
+        in=`echo $speeds | awk '{print $1}'`
+        out=`echo $speeds | awk '{print $2}'`
+    fi
+
+    # wifi 0 but no ethernet
+    if [ $in == "n/a" ] && [ $out == "n/a" ]; then
+        speeds=`ifstat -i en0 -z -q 1 1 | tail -n 1`
+        in=`echo $speeds | awk '{print $1}'`
+        out=`echo $speeds | awk '{print $2}'`
+    fi
+
+    echo -n "$(echo -n "$ICON") ↓ $ITEM $in $RESET $ICON ↑ $ITEM $out $RESET "
+}
+
+DOCKER() {
+    count=`docker ps | tail -n +2 | wc -l | awk {'print $1'}`
+
+    if [ "$count" -eq "0" ]; then
+        echo -n ''
+    else
+        echo -n "$ICON 🐳  $ITEM $count $RESET "
+    fi
+}
+
+TIME() {
+    echo -n "$ITEM $(date "+%H:%M") $RESET "
+}
+
+DATE() {
+    echo -n "$ITEM $(date "+%d/%m") $RESET"
+}
+
+echo -n "$(NETSPEEDS)$(DOCKER)$(TIME)$(DATE)"
