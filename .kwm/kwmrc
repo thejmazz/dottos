@@ -37,7 +37,7 @@ e.g: window-rules in a separate file called 'rules'
 */
 
 # Set default values for screen padding
-kwmc config padding 40 20 20 20
+kwmc config padding 20 70 20 20
 
 # Set default values for container gaps
 kwmc config gap 15 15
@@ -49,10 +49,10 @@ kwmc config tiling bsp
 kwmc config float-non-resizable on
 
 # Automatically resize the window to its container
-kwmc config lock-to-container on
+kwmc config lock-to-container off
 
 # Set focus-follows-mouse-mode to autoraise
-kwmc config focus-follows-mouse on
+kwmc config focus-follows-mouse toggle
 
 /*
     Focus-follows-mouse is temporarily disabled when
@@ -90,6 +90,8 @@ Override default settings for space 1 on screen 0
    kwmc config space 0 1 padding 100 100 100 100
    kwmc config space 0 1 gap 40 40
 */
+kwmc config space 0 3 mode monocle
+kwmc config space 0 3 padding 150 150 150 150
 
 /*
 Override default settings for screen 1
@@ -102,7 +104,7 @@ Override default settings for screen 1
 kwmc config split-ratio 0.5
 
 # New splits become the left leaf-node
-kwmc config spawn left
+kwmc config spawn right
 
 /*
     Add custom tiling rules for applications that
@@ -111,6 +113,7 @@ kwmc config spawn left
     AXWindowRole and AXStandardWindowSubRole
 */
 kwmc rule owner="iTerm2" properties={role="AXDialog"}
+kwmc rule owner="VLC" properties={role="AXDialog"}
 
 /*
 The following commands create rules that
@@ -119,6 +122,7 @@ blacklists an application from Kwms tiling
     kwmc rule owner="Steam" properties={float="true"}
     kwmc rule owner="Photoshop" properties={float="true"}
 */
+kwmc rule owner="Finder" properties={float="true"}
 
 /*
 The following command creates a rule that
@@ -127,12 +131,13 @@ if the screen exists.
 
    kwmc rule owner="iTunes" properties={display="1"}
 */
+kwmc rule owner="Mail" properties={window="3"}
 
 # Enable border for focused window
 kwmc config border focused on
 kwmc config border focused size 2
-kwmc config border focused color 0xFFBDD322
-kwmc config border focused radius 6
+kwmc config border focused color 0xFFE74C3C
+kwmc config border focused radius 5
 
 # Enable border for marked window
 kwmc config border marked on

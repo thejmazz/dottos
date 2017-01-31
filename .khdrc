@@ -2,7 +2,7 @@
 khd kwm on
 
 # set color of default mode
-khd mode default color 0xFFD5C4A1
+khd mode default color 0xffe74c3c
 
 # Enable the prefix mode
 khd mode prefix prefix on
@@ -16,16 +16,15 @@ ctrl - s                 :    khd -e "mode activate prefix"
 # Quit Kwm
 cmd + alt + ctrl - q     :    kwmc quit
 
-# Launch iTerm2
-cmd - return             :    open -na /Applications/iTerm2.app
+# Launch Terminal
+cmd - return             :    open -na /Applications/Utilities/Terminal.app
 
-# Set Space Tiling Mode To BSP
+# Set Space Tiling Mode to
+# BSP
 cmd + ctrl - a           :    kwmc space -t bsp
-
-# Set Space Tiling Mode To Monocle
+# Monocle
 cmd + ctrl - s           :    kwmc space -t monocle
-
-# Set Space Tiling Mode To Floating
+# Floating
 cmd + ctrl - d           :    kwmc space -t float
 
 # Rotate Window-Tree By 90degrees (Clockwise)
@@ -33,7 +32,7 @@ cmd + ctrl - r           :    kwmc tree rotate 90
 
 # Modify Container
 prefix - s               :    kwmc window -c split-mode toggle
-prefix - 0x32            :    kwmc window -c type toggle
+prefix - t               :    kwmc window -c type toggle
 
 prefix - h               :    kwmc window -c expand 0.05 west
 prefix - j               :    kwmc window -c expand 0.05 south
@@ -97,10 +96,17 @@ ctrl + shift - x         :    kwmc window -m mark
 ctrl + alt - left        :    kwmc window -m space left
 ctrl + alt - right       :    kwmc window -m space right
 
+# Move between spaces
+alt + shift - h          :    kwmc space -fExperimental left
+alt + shift - l          :    kwmc space -fExperimental right
+
 # Move Focused Window To Screen
 ctrl + alt - 1           :    kwmc window -m display 0
 ctrl + alt - 2           :    kwmc window -m display 1
 ctrl + alt - 3           :    kwmc window -m display 2
+
+# Resize window to container size
+prefix - r               :    kwmc window -r focused
 
 # Increase Container Gaps
 prefix - x               :    kwmc space -g increase horizontal
