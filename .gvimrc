@@ -3,6 +3,7 @@
 set macligatures
 set guifont=Fira\ Code:h18
 set linespace=4
+set guioptions-=r
 
 let g:one_allow_italics = 1
 let g:airline_theme='one'
