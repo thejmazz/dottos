@@ -18,11 +18,14 @@ Plugin 'tpope/vim-fugitive'
 " airline: lean & mean status/tabline for vim that's light as air
 Plugin 'bling/vim-airline'
 " A collection of themes for vim-airline
-Plugin 'https://github.com/vim-airline/vim-airline-themes'
+Plugin 'vim-airline/vim-airline-themes'
 " snipmate: support for textual snippets
-Plugin 'garbas/vim-snipmate'
+" Plugin 'garbas/vim-snipmate'
+Plugin 'SirVer/ultisnips'
 " snippets: vim-snipmate default snippets
 Plugin 'honza/vim-snippets'
+" React code snippets, forked from epilande/vim-react-snippets
+Plugin 'thejmazz/vim-react-snippets'
 " emmet: emmet for vim
 Plugin 'mattn/emmet-vim'
 " autoformat: provide easy code formatting in Vim by integrating existing code formatters
@@ -60,6 +63,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'chriskempson/base16-vim'
 " A code-completion engine for Vim
 Plugin 'Valloric/YouCompleteMe'
+let g:ycm_filetype_blacklist = {}
 " A Vim plugin which shows a git diff in the gutter (sign column) and stages/reverts hunks
 Plugin 'airblade/vim-gitgutter'
 " Plugin to work with R
@@ -70,7 +74,10 @@ Plugin 'chrisbra/csv.vim'
 " Create your own submodes
 Plugin 'kana/vim-submode'
 " List of JavaScript ES6 snippets and syntax highlighting for vim
-Plugin 'isRuslan/vim-es6'
+" Plugin 'isRuslan/vim-es6'
+Plugin 'pangloss/vim-javascript'
+let g:javascript_plugin_jsdoc = 1
+Plugin 'mxw/vim-jsx'
 " Generate JSDoc to your JavaScript code
 Plugin 'heavenshell/vim-jsdoc'
 " Fold in lines matching regex, word under cursor, etc
@@ -92,7 +99,7 @@ Plugin 'vim-scripts/mru.vim'
 " Adaptation of one-light and one-dark colorschemes for Vim
 Plugin 'rakr/vim-one'
 " Syntax Highlight for Vue.js components
-Plugin 'posva/vim-vue'
+" Plugin 'posva/vim-vue'
 " Better whitespace highlighting for Vim
 Plugin 'ntpeters/vim-better-whitespace'
 " Move lines and selections up and down
@@ -104,6 +111,26 @@ Plugin 'tikhomirov/vim-glsl'
 " vim plugin for tmux.conf
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'mbbill/vim-seattle'
+Plugin 'sophacles/vim-processing'
+Plugin 'alvan/vim-closetag'
+let g:closetag_filenames = "*.html,*.jsx"
+Plugin 'Shougo/vimproc.vim'
+
+" Plugin 'scrooloose/syntastic'
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_typescript_checkers = ['tsuquyomi']
+
+" Plugin 'leafgarland/typescript-vim'
+" Plugin 'Quramy/tsuquyomi'
+" let g:tsuquyomi_disable_quickfix = 1
 
 call vundle#end()
 filetype plugin indent on
@@ -122,7 +149,10 @@ syntax enable
 
 " Mappings
 " Remap <ESC> to easily leave insert mode
-inoremap ,, <ESC>
+" inoremap ,, <ESC>
+inoremap [: <ESC>
+inoremap ;; <ESC>
+inoremap ;' ;<ESC>
 " Change timeout so that typing i in insert mode is not as distracting
 set timeout timeoutlen=500 ttimeoutlen=0
 map <S-Right> :tabn<CR>
@@ -130,9 +160,16 @@ map <S-Left> :tabp<CR>
 map <S-h> :tabp<CR>
 map <S-l> :tabn<CR>
 map <C-n> :tabnew<CR>
+
+" Cycle buffers
+nnoremap <S-j> :bp<CR>
+nnoremap <S-k> :bn<CR>
+nnoremap gb :ls<CR>:b<Space>
+
 nnoremap <S-y> :tabm -1<CR>
 nnoremap <S-o> :tabm +1<CR>
 map <F2> :NERDTreeTabsToggle<CR>
+nnoremap tt :NERDTreeTabsToggle<CR>
 nnoremap <silent><F3> :call g:ToggleColorColumn()<CR>
 map <F7> :setlocal spell! spelllang=en_ca<CR>
 map <F12> :SaveSession<CR>
@@ -148,6 +185,12 @@ nnoremap <C-H> <C-W><C-H>
 " nnoremap ˚ <C-W><C-K>
 " nnoremap ¬ <C-W><C-L>
 " nnoremap ˙ <C-W><C-H>
+" Quick filetype changes
+nnoremap fth :set filetype=html<CR>
+nnoremap ftj :set filetype=javascript<CR>
+nnoremap fts :set filetype=scss<CR>
+nnoremap ftr :set filetype=raml<CR>
+nnoremap ftg :set filetype=glsl<CR>
 " Change split sizes
 map <C-u> :resize +1 <CR>
 map <C-i> :resize -1 <CR>
@@ -186,6 +229,8 @@ au BufRead * normal zR
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd BufNewFile,BufRead *.js set filetype=javascript
 autocmd BufNewFile,BufRead .babelrc set filetype=json
+autocmd BufNewFile,BufRead *.vue set filetype=html
+autocmd BufNewFile,BufRead kwmrc set filetype=conf
 " autocmd! GUIEnter * set vb t_vb=
 set noeb vb t_vb=
 
@@ -205,6 +250,11 @@ set hlsearch
 set nowrap
 " Always show 10 lines above/below
 set scrolloff=10
+
+" UtilSnips
+let g:UltiSnipsExpandTrigger=",,"
+let g:UltiSnipsJumpForwardTrigger=",."
+let g:UltiSnipsJumpBackwardTrigger=",m"
 
 " Setup for  vim-airline
 let g:airline_powerline_fonts=1
@@ -295,8 +345,12 @@ set laststatus=2
 set mouse=nicr
 " Set up tabs
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+" Default tab size for filetypes
 au FileType javascript setl sw=2 sts=2 et
+au FileType typescript setl sw=2 sts=2 et
+au FileType scss setl sw=2 sts=2 et
 au FileType yaml setl sw=2 sts=2 et
+au Filetype html setl sw=2 sts=2 et
 " Show line numbers
 set number
 " Text width at 80 characters
