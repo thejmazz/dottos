@@ -1,7 +1,9 @@
 # Aliases
 alias src="source $HOME/.bash_profile"
+unset LS_COLORS # prevent zsh from using gls
 alias ls="ls -G"
 alias cls="clear; ls"
+alias cll="clear; ls -lh"
 alias cl="clear"
 alias ccat="pygmentize -g"
 alias git=hub
