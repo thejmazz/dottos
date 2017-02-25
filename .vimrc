@@ -63,7 +63,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'chriskempson/base16-vim'
 " A code-completion engine for Vim
 Plugin 'Valloric/YouCompleteMe'
-let g:ycm_filetype_blacklist = {}
+" let g:ycm_filetype_blacklist = {}
 " A Vim plugin which shows a git diff in the gutter (sign column) and stages/reverts hunks
 Plugin 'airblade/vim-gitgutter'
 " Plugin to work with R
@@ -191,6 +191,7 @@ nnoremap ftj :set filetype=javascript<CR>
 nnoremap fts :set filetype=scss<CR>
 nnoremap ftr :set filetype=raml<CR>
 nnoremap ftg :set filetype=glsl<CR>
+nnoremap fts :set filetype=sql<CR>
 " Change split sizes
 map <C-u> :resize +1 <CR>
 map <C-i> :resize -1 <CR>
