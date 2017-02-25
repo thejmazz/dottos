@@ -24,7 +24,7 @@ alias disku="sudo du -sh ./* | gsort -rh"
 # alias r="r --no-save"
 # === tmux aliases ===
 # alias tmux="tmux -2"
-alias tmux="TERM=screen-256color tmux"
+# alias tmux="TERM=screen-256color tmux"
 alias ta='tmux attach -t'
 alias tad='tmux attach -d -t'
 alias ts='tmux new-session -s'
@@ -130,6 +130,8 @@ alias node6="docker run --rm -it -w /usr/src/app -v `pwd`:/usr/src/app node:6.2.
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh"  ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export TERM=xterm-256color
 
 # for npm chalk
 export FORCE_COLOR=dank

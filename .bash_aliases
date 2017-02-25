@@ -1,6 +1,6 @@
 alias cls="clear; ls"
 
-alias tmux="tmux -2"
+# alias tmux="tmux -2"
 #alias tmux="TERM=screen-256color tmux"
 alias ta='tmux attach -t'
 alias tad='tmux attach -d -t'
