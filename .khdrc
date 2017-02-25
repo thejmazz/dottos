@@ -97,16 +97,27 @@ ctrl + alt - left        :    kwmc window -m space left
 ctrl + alt - right       :    kwmc window -m space right
 
 # Move between spaces
-alt + shift - h          :    kwmc space -fExperimental left
-alt + shift - l          :    kwmc space -fExperimental right
+# alt + shift - h          :    kwmc space -fExperimental left
+# alt + shift - l          :    kwmc space -fExperimental right
 
 # Move Focused Window To Screen
 ctrl + alt - 1           :    kwmc window -m display 0
 ctrl + alt - 2           :    kwmc window -m display 1
 ctrl + alt - 3           :    kwmc window -m display 2
 
+# Change container type of window
+prefix - m               :    kwmc window -c type monocle
+prefix - b               :    kwmc window -c type bsp
+
+# Toggle focused window border
+prefix - i               : kwmc config border focused on
+prefix - u               : kwmc config border focused off
+
 # Resize window to container size
 prefix - r               :    kwmc window -r focused
+
+# Toggle focus-follows-mouse
+prefix - q               :    kwmc config focus-follows-mouse toggle
 
 # Increase Container Gaps
 prefix - x               :    kwmc space -g increase horizontal
