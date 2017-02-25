@@ -1,0 +1,9 @@
+#!/bin/bash
+
+progress=`/usr/local/bin/mpc | sed '2q;d' | awk '{print $4}' | sed s/^\(// | sed s/\)$//`
+
+if [[ "$progress" == "" ]]; then
+    echo "0%"
+else
+    echo $progress
+fi
