@@ -1,23 +1,26 @@
 " === Plugins ===
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'jiangmiao/auto-pairs'                                 " Insert or delete brackets, parens, quotes in pair
-Plug 'tpope/vim-surround'                                   " quoting/parenthesizing made simple
-Plug 'tpope/vim-commentary'                                 " Comment stuff out
-Plug 'itchyny/lightline.vim'                                " A light and configurable statusline/tabline for Vim
-Plug 'airblade/vim-gitgutter'                               " Shows a git diff in the gutter (sign column) and stages/undoes hunks
-Plug 'itchyny/calendar.vim'                                 " A calendar application for Vim
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Dark powered asynchronous completion framework
+Plug 'jiangmiao/auto-pairs'                                      " Insert or delete brackets, parens, quotes in pair
+Plug 'tpope/vim-surround'                                        " quoting/parenthesizing made simple
+Plug 'tpope/vim-commentary'                                      " Comment stuff out
+Plug 'tpope/vim-obsession'                                       " continuously updated session files
+Plug 'itchyny/lightline.vim'                                     " A light and configurable statusline/tabline for Vim
+Plug 'airblade/vim-gitgutter'                                    " Shows a git diff in the gutter (sign column) and stages/undoes hunks
+Plug 'itchyny/calendar.vim'                                      " A calendar application for Vim
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }    " Dark powered asynchronous completion framework
+Plug 'scrooloose/nerdtree'                                       " The NERD Tree
+Plug 'jlanzarotta/bufexplorer'                                   " Bufexplorer
 
-Plug 'tikhomirov/vim-glsl'                                  " OpenGL Shading Language
-Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }        " CoffeeScript
-Plug 'othree/yajs.vim', { 'for': 'javascript' }             " JavaScript
-Plug 'othree/es.next.syntax.vim', { 'for': 'javascript' }   " ESNext
-Plug 'mxw/vim-jsx'                                          " JSX syntax highlighting and indenting
-Plug 'elzr/vim-json', { 'for': 'json' }                     " Better JSON
-Plug 'tmux-plugins/vim-tmux'                                " For .tmux.conf
+Plug 'tikhomirov/vim-glsl'                                       " OpenGL Shading Language
+Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }             " CoffeeScript
+Plug 'othree/yajs.vim', { 'for': 'javascript' }                  " JavaScript
+Plug 'othree/es.next.syntax.vim', { 'for': 'javascript' }        " ESNext
+Plug 'mxw/vim-jsx'                                               " JSX syntax highlighting and indenting
+Plug 'elzr/vim-json', { 'for': 'json' }                          " Better JSON
+Plug 'tmux-plugins/vim-tmux'                                     " For .tmux.conf
 
-Plug 'fneu/breezy'                                          " Colorscheme inspired by KDE breezy template
+Plug 'fneu/breezy'                                               " Colorscheme inspired by KDE breezy template
 Plug 'davidklsn/vim-sialoquent'
 Plug 'arcticicestudio/nord-vim'
 Plug 'dikiaap/minimalist'
@@ -46,6 +49,10 @@ let g:lightline = {
     \ },
     \ 'tabline_subseparator': { 'left': '', 'right': '' }
     \ }
+
+let g:NERDTreeWinPos = "right"
+" let g:NERDTreeDirArrowExpandable =  '-<' "'|>'
+" let g:NERDTreeDirArrowCollapsible = '-<'
 
 
 " === UI Options ===
@@ -95,7 +102,6 @@ au FileType javascript.jsx setlocal sw=2 sts=2 et
 " === Key Bindings ===
 let mapleader="\<SPACE>"
 nnoremap <Leader>s :%s//g<Left><Left>
-" map <leader>ts :call ToggleScrollbar()<CR>
 
 " === Insert Mode Mappings ===
 inoremap ;; <ESC>
@@ -103,10 +109,16 @@ inoremap ;; <ESC>
 " === Normal Mode Mappings ===
 " deoplete tab complete
 " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-
+map <F2> :NERDTreeToggle<CR> 
+map <Leader>t :NERDTreeToggle<CR> 
 
 nnoremap '' :noh<CR>
+nnoremap * *N
+
+" Buffer helpers
 nnoremap gb :ls<CR>:b<Space>
+nnoremap <S-n> :bp<CR>
+nnoremap <S-m> :bn<CR>
 
 nnoremap gff gf 
 nnoremap gft <C-w>gf
@@ -119,10 +131,10 @@ nnoremap { {k
 nnoremap <S-Enter> O<Esc>
 nnoremap <CR> o<Esc>
 
-nnoremap <m-h> <C-w>h
-nnoremap <m-j> <C-w>j
-nnoremap <m-k> <C-w>k
-nnoremap <m-l> <C-w>l
+nnoremap <M-h> <C-w>h
+nnoremap <M-j> <C-w>j
+nnoremap <M-k> <C-w>k
+nnoremap <M-l> <C-w>l
 
 nnoremap <S-h> :tabp<CR>
 nnoremap <S-l> :tabn<CR>
