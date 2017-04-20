@@ -10,7 +10,10 @@ Plug 'airblade/vim-gitgutter'                                    " Shows a git d
 Plug 'itchyny/calendar.vim'                                      " A calendar application for Vim
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }    " Dark powered asynchronous completion framework
 Plug 'scrooloose/nerdtree'                                       " The NERD Tree
+Plug 'jistr/vim-nerdtree-tabs'                                   " NERDTree and tabs together in Vim, painlessly
 Plug 'jlanzarotta/bufexplorer'                                   " Bufexplorer
+Plug 'dhruvasagar/vim-table-mode'                                " Table mode for instant table creation
+Plug 'ntpeters/vim-better-whitespace'                            " Better whitespace highlighting for Vim
 
 Plug 'tikhomirov/vim-glsl'                                       " OpenGL Shading Language
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }             " CoffeeScript
@@ -25,6 +28,12 @@ Plug 'davidklsn/vim-sialoquent'
 Plug 'arcticicestudio/nord-vim'
 Plug 'dikiaap/minimalist'
 Plug 'KeitaNakamura/neodark.vim'
+Plug 'zcodes/vim-colors-basic'
+Plug 'danilo-augusto/vim-afterglow'
+Plug 'tomasiser/vim-code-dark'
+Plug 'rhysd/vim-color-spring-night'
+Plug 'snowcrshd/cyberpunk.vim'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 " Automatically executes
@@ -38,7 +47,7 @@ let g:calendar_google_task = 1
 let g:deoplete#enable_at_startup = 1
 
 let g:lightline = {
-    \ 'colorscheme': 'breezy',
+    \ 'colorscheme': 'gruvbox',
     \ 'tabline': {
     \   'left': [ [ 'tabs' ] ],
     \   'right': [ [] ]
@@ -53,6 +62,8 @@ let g:lightline = {
 let g:NERDTreeWinPos = "right"
 " let g:NERDTreeDirArrowExpandable =  '-<' "'|>'
 " let g:NERDTreeDirArrowCollapsible = '-<'
+
+let g:table_mode_corner='|'
 
 
 " === UI Options ===
@@ -71,9 +82,21 @@ let g:netrw_banner = 0              " Hide banner
 let g:netrw_winsize = 25            " Set width to 25%
 
 " === Colorscheme ===
-colorscheme neodark
+set background=dark
+colorscheme gruvbox "neodark
+let g:gruvbox_contrast_dark = 'soft'
+let g:gitgutter_override_sign_column_highlight = 0
 highlight Normal guibg=NONE ctermbg=NONE
 highlight VertSplit guibg=NONE guifg=#282c33
+highlight CursorLineNR guibg=#ff0000
+highlight SignColumn guibg=NONE
+highlight GitGutterAdd guibg=NONE guifg=#b8bb26
+highlight GitGutterChange guibg=NONE guifg=#8ec07c
+highlight GitGutterDelete guibg=NONE guifg=#fb4934
+highlight GitGutterChangeDelete guibg=NONE guifg=#8ec07c
+" highlight VertSplit guibg=NONE guifg=#A15FA9
+" highlight ExtraWhitespace ctermbg=red guibg=#be5046
+highlight ExtraWhitespace ctermbg=red guibg=#A15FA9
 
 " === Search Options ===
 set ignorecase          " Make searching case insensitive
@@ -99,28 +122,42 @@ set smarttab
 au FileType javascript setlocal sw=2 sts=2 et
 au FileType javascript.jsx setlocal sw=2 sts=2 et
 
+" === autocmds ===
+autocmd BufWritePre * StripWhitespace " see g:better_whitespace_filetypes_blacklist for exceptions
+
 " === Key Bindings ===
 let mapleader="\<SPACE>"
 nnoremap <Leader>s :%s//g<Left><Left>
+nnoremap <Leader>o :silent !open .<CR>
 
 " === Insert Mode Mappings ===
 inoremap ;; <ESC>
+inoremap ;' ;<ESC>
+inoremap ;w <ESC>:w<CR>
+inoremap ;p <C-r>
 
 " === Normal Mode Mappings ===
 " deoplete tab complete
 " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-map <F2> :NERDTreeToggle<CR> 
-map <Leader>t :NERDTreeToggle<CR> 
+map <F2> :NERDTreeToggle<CR>
+" map <Leader>n :NERDTreeToggle<CR>
+map <Leader>n :NERDTreeTabsToggle<CR>
+map <Leader>w :w<CR>
+map <Leader>te :tabe.<CR>
 
 nnoremap '' :noh<CR>
 nnoremap * *N
+nnoremap ; :
 
 " Buffer helpers
 nnoremap gb :ls<CR>:b<Space>
-nnoremap <S-n> :bp<CR>
-nnoremap <S-m> :bn<CR>
+nnoremap <S-u> :bp<CR>
+nnoremap <S-i> :bn<CR>
 
-nnoremap gff gf 
+nnoremap <Leader>h :cprev<CR>
+nnoremap <Leader>l :cnext<CR>
+
+nnoremap gff gf
 nnoremap gft <C-w>gf
 nnoremap gfs <C-w>f
 nnoremap gfv <C-w>vgf
@@ -179,10 +216,17 @@ nnoremap <S-j> :call DownStep()<CR>
 nnoremap <S-k> :call UpStep()<CR>
 
 nnoremap ftj :set filetype=javascript<CR>
+nnoremap ftx :set filetype=javascript.jsx<CR>
 nnoremap ftg :set filetype=glsl<CR>
 
 nnoremap <Leader>r :source $MYVIMRC<CR>
 nnoremap <Leader>v :tabe $MYVIMRC<CR>
+nnoremap <Leader>e :e!<CR>
 
 " inoremap <expr><C-e> deoplete#smart_close_popup()."\<C-e>"
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" === Visual Mode Mappings ===
+
+vnoremap ;y "yy
+vnoremap ;x "xx
