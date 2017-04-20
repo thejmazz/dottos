@@ -67,7 +67,7 @@ kwmc config center-on-float on
     The mouse will automatically move to the center
     of the focused window
 */
-kwmc config mouse-follows-focus on
+kwmc config mouse-follows-focus off
 
 /*
     Allows a window to be moved by dragging,
@@ -93,12 +93,14 @@ Override default settings for space 1 on screen 0
 kwmc config space 0 3 mode monocle
 kwmc config space 0 3 padding 150 150 150 150
 
+
 /*
 Override default settings for screen 1
    kwmc config display 1 mode bsp
    kwmc config display 1 padding 100 100 100 100
    kwmc config display 1 gap 40 40
 */
+/* kwmc config display 0 float-dim 1920 1080 */
 
 # Set default container split-ratio
 kwmc config split-ratio 0.5
@@ -134,7 +136,7 @@ if the screen exists.
 kwmc rule owner="Mail" properties={window="3"}
 
 # Enable border for focused window
-kwmc config border focused on
+kwmc config border focused off
 kwmc config border focused size 2
 kwmc config border focused color 0xFFE74C3C
 kwmc config border focused radius 5

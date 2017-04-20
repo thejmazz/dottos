@@ -2,7 +2,8 @@
 khd kwm on
 
 # set color of default mode
-khd mode default color 0xffe74c3c
+# khd mode default color 0xffe74c3c
+khd mode default color 0xFFDE4AE0
 
 # Enable the prefix mode
 khd mode prefix prefix on
@@ -17,7 +18,7 @@ ctrl - s                 :    khd -e "mode activate prefix"
 cmd + alt + ctrl - q     :    kwmc quit
 
 # Launch Terminal
-cmd - return             :    open -na /Applications/Utilities/Terminal.app
+cmd - return             :    open -na /Applications/iTerm.app
 
 # Set Space Tiling Mode to
 # BSP
@@ -97,8 +98,8 @@ ctrl + alt - left        :    kwmc window -m space left
 ctrl + alt - right       :    kwmc window -m space right
 
 # Move between spaces
-# alt + shift - h          :    kwmc space -fExperimental left
-# alt + shift - l          :    kwmc space -fExperimental right
+alt + shift - h          :    kwmc space -fExperimental left
+alt + shift - l          :    kwmc space -fExperimental right
 
 # Move Focused Window To Screen
 ctrl + alt - 1           :    kwmc window -m display 0
@@ -120,12 +121,12 @@ prefix - r               :    kwmc window -r focused
 prefix - q               :    kwmc config focus-follows-mouse toggle
 
 # Increase Container Gaps
-prefix - x               :    kwmc space -g increase horizontal
-prefix - y               :    kwmc space -g increase vertical
+prefix - y               :    kwmc space -g increase horizontal
+prefix - x               :    kwmc space -g increase vertical
 
 # Decrease Container Gaps
-prefix + shift - x       :    kwmc space -g decrease horizontal
-prefix + shift - y       :    kwmc space -g decrease vertical
+prefix + shift - y       :    kwmc space -g decrease horizontal
+prefix + shift - x       :    kwmc space -g decrease vertical
 
 # Increase Screen Padding
 prefix - left            :    kwmc space -p increase left
@@ -140,3 +141,9 @@ prefix + shift - right   :    kwmc space -p decrease right
 prefix + shift - up      :    kwmc space -p decrease top
 prefix + shift - down    :    kwmc space -p decrease bottom
 prefix + shift - p       :    kwmc space -p decrease all
+
+# Get window list
+prefix + shift - w       : kwmc query window list > ~/wl.txt
+
+# Restart kwm
+prefix + q               : brew services restart kwm
