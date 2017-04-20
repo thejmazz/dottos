@@ -1,4 +1,6 @@
 # Aliases
+# source ~/.bash_aliases
+
 alias src="source $HOME/.bash_profile"
 unset LS_COLORS # prevent zsh from using gls
 alias ls="ls -G"
@@ -16,7 +18,6 @@ alias wds="webpack-dev-server"
 alias canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --enable-unsafe-es3-apis"
 alias sed=gsed
 alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
-eval $(thefuck --alias)
 alias less="less -R"
 alias tree="tree -I node_modules"
 alias dps="docker ps --format 'table {{.Image}}\t{{.Command}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}'"
@@ -60,6 +61,26 @@ alias gs="git status"
 alias gcam="git commit -am"
 alias gp="git push"
 alias gpsuom="git push --set-upstream origin master"
+alias github=GitHub
+
+function GitHub() {
+    # if [ ! -d .git ] ;
+    #     then echo "ERROR: This isnt a git directory" && return false;
+    # fi
+    git_url=`git config --get remote.origin.url`
+    if [[ $git_url == https://github* ]];
+    then
+        url=${git_url%.git}
+    else
+       if [[ $git_url == git@github.com* ]]
+       then
+            url="https://github.com/${${git_url:15}%.git}"
+       else
+           echo "ERROR: Remote origin is invalid" && return false;
+       fi
+    fi
+    open $url
+}
 
 # Functions
 function cless {
