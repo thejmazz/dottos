@@ -1,0 +1,6 @@
+#!/bin/bash
+
+if command -v nvim >/dev/null 2>&1; then
+  echo "Bootstraping Neovim"
+  vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
+fi
