@@ -14,6 +14,7 @@ Plug 'jistr/vim-nerdtree-tabs'                                   " NERDTree and 
 Plug 'jlanzarotta/bufexplorer'                                   " Bufexplorer
 Plug 'dhruvasagar/vim-table-mode'                                " Table mode for instant table creation
 Plug 'ntpeters/vim-better-whitespace'                            " Better whitespace highlighting for Vim
+Plug 'sbdchd/neoformat'                                          " A (Neo)vim plugin for formatting code
 
 Plug 'tikhomirov/vim-glsl'                                       " OpenGL Shading Language
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }             " CoffeeScript
@@ -121,6 +122,10 @@ set expandtab
 set smarttab
 au FileType javascript setlocal sw=2 sts=2 et
 au FileType javascript.jsx setlocal sw=2 sts=2 et
+au FileType typescript setl sw=2 sts=2 et
+au FileType scss setl sw=2 sts=2 et
+au FileType yaml setl sw=2 sts=2 et
+au Filetype html setl sw=2 sts=2 et
 
 " === autocmds ===
 autocmd BufWritePre * StripWhitespace " see g:better_whitespace_filetypes_blacklist for exceptions
@@ -129,6 +134,7 @@ autocmd BufWritePre * StripWhitespace " see g:better_whitespace_filetypes_blackl
 let mapleader="\<SPACE>"
 nnoremap <Leader>s :%s//g<Left><Left>
 nnoremap <Leader>o :silent !open .<CR>
+nnoremap <Leader>m :silent !vmd % &<CR>
 
 " === Insert Mode Mappings ===
 inoremap ;; <ESC>
@@ -145,9 +151,11 @@ map <Leader>n :NERDTreeTabsToggle<CR>
 map <Leader>w :w<CR>
 map <Leader>te :tabe.<CR>
 
+" nnoremap ' /
 nnoremap '' :noh<CR>
 nnoremap * *N
 nnoremap ; :
+
 
 " Buffer helpers
 nnoremap gb :ls<CR>:b<Space>
