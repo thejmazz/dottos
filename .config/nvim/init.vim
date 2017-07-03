@@ -90,7 +90,7 @@ let g:netrw_winsize = 25            " Set width to 25%
 
 " === Colorscheme ===
 set background=dark
-colorscheme gruvbox "neodark
+silent! colorscheme gruvbox "neodark
 let g:gruvbox_contrast_dark = 'soft'
 let g:gitgutter_override_sign_column_highlight = 0
 highlight Normal guibg=NONE ctermbg=NONE
