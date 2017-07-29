@@ -13,4 +13,7 @@ alias tta="ta 0"
 
 alias dps="docker ps --format 'table {{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}'"
 
-alias cdup="cd `git rev-parse --show-toplevel`"
+# alias cdup="cd `git rev-parse --show-toplevel`"
+function cdup() {
+    cd `git rev-parse --show-toplevel`
+}
