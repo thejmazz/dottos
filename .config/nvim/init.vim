@@ -53,18 +53,20 @@ let g:calendar_google_task = 1
 
 let g:deoplete#enable_at_startup = 1
 
-let g:lightline = {
-    \ 'colorscheme': 'gruvbox',
-    \ 'tabline': {
-    \   'left': [ [ 'tabs' ] ],
-    \   'right': [ [] ]
-    \ },
-    \ 'tab': {
-    \   'active': [ 'filename', 'modified' ],
-    \   'inactive': [ 'filename', 'modified' ]
-    \ },
-    \ 'tabline_subseparator': { 'left': '', 'right': '' }
-    \ }
+if !empty($DISPLAY)
+    let g:lightline = {
+        \ 'colorscheme': 'gruvbox',
+        \ 'tabline': {
+        \   'left': [ [ 'tabs' ] ],
+        \   'right': [ [] ]
+        \ },
+        \ 'tab': {
+        \   'active': [ 'filename', 'modified' ],
+        \   'inactive': [ 'filename', 'modified' ]
+        \ },
+        \ 'tabline_subseparator': { 'left': '', 'right': '' }
+        \ }
+endif
 
 let g:NERDTreeWinPos = "right"
 " let g:NERDTreeDirArrowExpandable =  '-<' "'|>'
@@ -89,8 +91,11 @@ let g:netrw_banner = 0              " Hide banner
 let g:netrw_winsize = 25            " Set width to 25%
 
 " === Colorscheme ===
-set background=dark
-silent! colorscheme gruvbox "neodark
+if !empty($DISPLAY)
+    set background=dark
+    colorscheme gruvbox
+endif
+
 let g:gruvbox_contrast_dark = 'soft'
 let g:gitgutter_override_sign_column_highlight = 0
 highlight Normal guibg=NONE ctermbg=NONE
@@ -157,11 +162,9 @@ map <Leader>n :NERDTreeTabsToggle<CR>
 map <Leader>w :w<CR>
 map <Leader>te :tabe.<CR>
 
-" nnoremap ' /
 nnoremap '' :noh<CR>
 nnoremap * *N
 nnoremap ; :
-
 
 " Buffer helpers
 nnoremap gb :ls<CR>:b<Space>
