@@ -84,6 +84,7 @@ set showmode            " Show current mode
 "set showmatch           " Show matching brackets
 set noerrorbells        " No beeps
 set termguicolors       " Uses guifg,guibg highlight attributes
+set mouse=a
 
 " === netrw options ===
 let g:netrw_banner = 0              " Hide banner
