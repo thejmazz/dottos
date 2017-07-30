@@ -4,3 +4,7 @@ if command -v nvim >/dev/null 2>&1; then
   echo "Bootstraping Neovim"
   nvim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
 fi
+
+if [ ! -d ~/.tmux/plugins/tmp ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
