@@ -1,8 +1,15 @@
 #!/bin/bash
 
 if command -v nvim >/dev/null 2>&1; then
-  echo "Bootstraping Neovim"
-  nvim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
+    echo "Installing vim-plug plugins for Neovim"
+    nvim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
+fi
+
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+    echo "Cloning tpm"
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    echo "Installing tmux plugins"
+    ~/.tmux/plugins/tpm/bin/install_plugins
 fi
 
 if [ ! -d ~/.tmux/plugins/tmp ]; then
