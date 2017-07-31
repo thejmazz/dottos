@@ -30,7 +30,7 @@ alias tksv='tmux kill-server'
 alias tkss='tmux kill-session -t'
 alias tta="ta 0"
 
-eval $(dircolors -b $HOME/.dircolors)
+[[ -f $HOME/.dircolors ]] && eval $(dircolors -b $HOME/.dircolors)
 
 PATH="/home/julian/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/julian/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
