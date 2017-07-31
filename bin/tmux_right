@@ -1,12 +1,12 @@
 #!/bin/bash
 
-ICON="#[fg=colour7,bg=colour1]"
+ICON="#[fg=colour7,bg=colour4]"
 ITEM="#[fg=colour0,bg=colour7]"
 RESET="#[fg=default,bg=default]"
 
 NETSPEEDS() {
     # wifi
-    speeds=`ifstat -i en0 -z -q 1 1 | tail -n 1`
+    speeds=`ifstat -i eth1 -z -q 1 1 | tail -n 1`
     in=`echo $speeds | awk '{print $1}'`
     out=`echo $speeds | awk '{print $2}'`
 
@@ -24,7 +24,8 @@ NETSPEEDS() {
         out=`echo $speeds | awk '{print $2}'`
     fi
 
-    echo -n "$(echo -n "$ICON") ↓ $ITEM $in $RESET $ICON ↑ $ITEM $out $RESET "
+    # echo -n "$(echo -n "$ICON") ↓ $ITEM $in $RESET $ICON ↑ $ITEM $out $RESET "
+    echo -n "$(echo -n "$ICON")  $ITEM $in $RESET $ICON  $ITEM $out $RESET "
 }
 
 DOCKER() {
@@ -33,7 +34,9 @@ DOCKER() {
     if [ "$count" -eq "0" ]; then
         echo -n ''
     else
-        echo -n "$ICON 🐳  $ITEM $count $RESET "
+        # echo -n "$ICON 🐳  $ITEM $count $RESET "
+        # echo -n "$ICON D $ITEM $count $RESET "
+        echo -n "$ICON  $ITEM $count $RESET "
     fi
 }
 
@@ -45,4 +48,19 @@ DATE() {
     echo -n "$ITEM $(date "+%d/%m") $RESET"
 }
 
-echo -n "$(NETSPEEDS)$(DOCKER)$(TIME)$(DATE)"
+IP() {
+    echo -n "$ICON  $ITEM $(curl icanhazip.com) $RESET"
+    # echo -n "$ICON  $ITEM $(curl icanhazip.com) $RESET"
+}
+
+MEM() {
+    echo -n "$ICON  $ITEM mem $RESET"
+    echo -n "$ICON  $ITEM mem $RESET"
+}
+
+STORAGE() {
+    space=`df -h | grep ^/dev/ploop* | awk '{gsub ("G",""); print $3"/"$4"G"}'`
+    echo -n "$ICON  $ITEM $space $RESET"
+}
+
+echo -n "$(IP) $(STORAGE) $(NETSPEEDS)$(DOCKER)"
