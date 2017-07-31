@@ -6,7 +6,7 @@ RESET="#[fg=default,bg=default]"
 
 NETSPEEDS() {
     # wifi
-    speeds=`ifstat -i eth1 -z -q 1 1 | tail -n 1`
+    speeds=`ifstat -i eth0 -z -q 1 1 | tail -n 1`
     in=`echo $speeds | awk '{print $1}'`
     out=`echo $speeds | awk '{print $2}'`
 
@@ -59,7 +59,7 @@ MEM() {
 }
 
 STORAGE() {
-    space=`df -h | grep ^/dev/ploop* | awk '{gsub ("G",""); print $3"/"$4"G"}'`
+    space=`df -h | grep ^/dev/.*da[[:digit:]] | awk '{gsub ("G",""); print $3"/"$2"G"}'`
     echo -n "$ICON  $ITEM $space $RESET"
 }
 
