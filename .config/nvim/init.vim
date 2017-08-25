@@ -21,6 +21,8 @@ Plug 'jlanzarotta/bufexplorer'                                   " Bufexplorer
 Plug 'dhruvasagar/vim-table-mode'                                " Table mode for instant table creation
 Plug 'ntpeters/vim-better-whitespace'                            " Better whitespace highlighting for Vim
 Plug 'sbdchd/neoformat'                                          " A (Neo)vim plugin for formatting code
+Plug 'ap/vim-css-color'                                          " Preview colours in source code while editing
+Plug 'embear/vim-foldsearch'                                     " fold away lines that don't match a specific search pattern
 
 Plug 'tikhomirov/vim-glsl'                                       " OpenGL Shading Language
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }             " CoffeeScript
@@ -235,6 +237,7 @@ nnoremap <S-k> :call UpStep()<CR>
 
 nnoremap ftj :set filetype=javascript<CR>
 nnoremap ftx :set filetype=javascript.jsx<CR>
+nnoremap fts :set filetype=sql<CR>
 nnoremap ftg :set filetype=glsl<CR>
 
 nnoremap <Leader>r :source $MYVIMRC<CR>
