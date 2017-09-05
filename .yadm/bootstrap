@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "Init submodules"
+source <(curl -fsSL 'https://github.com/TheLocehiliosan/yadm/raw/master/bootstrap') && yadm submodule update --init --recursive
+
 if command -v nvim >/dev/null 2>&1; then
     echo "Installing vim-plug plugins for Neovim"
     nvim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
