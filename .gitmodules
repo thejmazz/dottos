@@ -1,3 +1,6 @@
 [submodule ".yadm-project"]
 	path = .yadm-project
 	url = https://github.com/TheLocehiliosan/yadm.git
+[submodule ".playbooks"]
+	path = .playbooks
+	url = https://github.com/thejmazz/playbooks.git
