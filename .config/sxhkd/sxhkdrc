@@ -23,6 +23,9 @@ super + shift + x
 # bspwm hotkeys
 #
 
+super + w
+    bspc node -c
+
 # rotate
 super + {_,shift + }r
     bspc node @parent -R {90,270}
