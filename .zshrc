@@ -12,23 +12,17 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+autoload -Uz promptinit
+promptinit
+prompt redhat
+
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_CONNECTION" ]; then
     export DISPLAY=:0.0
 fi
 
 # ALIASES
-alias cls="clear;ls"
 alias ls="ls --color"
-alias ll="ls++ --potsf"
-alias dps="docker ps --format 'table {{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}'"
-alias ta='tmux attach -t'
-alias tad='tmux attach -d -t'
-alias ts='tmux new-session -s'
-alias tl='tmux list-sessions'
-alias ctl='clear; tmux list-sessions'
-alias tksv='tmux kill-server'
-alias tkss='tmux kill-session -t'
-alias tta="ta 0"
+[[ -f $HOME/.bash_aliases ]] && source $HOME/.bash_aliases
 
 [[ -f $HOME/.dircolors ]] && eval $(dircolors -b $HOME/.dircolors)
 
