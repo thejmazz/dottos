@@ -2,6 +2,8 @@
 
 feh --bg-scale ~/Pictures/Wallpapers/neon-demon.jpg
 
+compton --no-fading-openclose -b
+
 sxhkd &
 libinput-gestures-setup start &
 $HOME/.config/polybar/launch.sh
