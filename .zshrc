@@ -16,6 +16,25 @@ autoload -Uz promptinit
 promptinit
 prompt redhat
 
+function zle-line-init zle-keymap-select {
+    # LEFT="=="; RIGHT="=="
+    # LEFT=">-"; RIGHT="-<"
+    # LEFT=">>="; RIGHT="=<<"
+    # LEFT="<|"; RIGHT="|>"
+    # LEFT="<-"; RIGHT="->"
+    LEFT="==>"; RIGHT="<=="
+    # LEFT="<~"; RIGHT="~>"
+
+    N_LEFT=$LEFT; N_RIGHT=$RIGHT
+    N_LEFT="<=="; N_RIGHT="==>"
+
+    RPS1="${${KEYMAP/vicmd/$N_LEFT NORMAL $N_RIGHT}/(main|viins)/$LEFT INSERT $RIGHT}"
+    RPS2=$RPS1
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_CONNECTION" ]; then
     export DISPLAY=:0.0
 fi
