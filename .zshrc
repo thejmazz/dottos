@@ -15,7 +15,7 @@ autoload -Uz compinit
 compinit
 
 PROMPT="|> "
-[[ -z "SSH_CLIENT" ]] && PROMPT="[%n@%h] |>"
+[[ -n "SSH_CLIENT" ]] && PROMPT="[%n@%M]|> "
 
 function zle-line-init zle-keymap-select {
     # LEFT="=="; RIGHT="=="
