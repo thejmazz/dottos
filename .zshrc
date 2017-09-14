@@ -14,9 +14,8 @@ zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
 compinit
 
-autoload -Uz promptinit
-promptinit
-prompt redhat
+PROMPT="|> "
+[[ -z "SSH_CLIENT" ]] && PROMPT="[%n@%h] |>"
 
 function zle-line-init zle-keymap-select {
     # LEFT="=="; RIGHT="=="
@@ -30,7 +29,8 @@ function zle-line-init zle-keymap-select {
     N_LEFT=$LEFT; N_RIGHT=$RIGHT
     N_LEFT="<=="; N_RIGHT="==>"
 
-    RPS1="${${KEYMAP/vicmd/$N_LEFT NORMAL $N_RIGHT}/(main|viins)/$LEFT INSERT $RIGHT}"
+    # RPS1="${${KEYMAP/vicmd/$N_LEFT NORMAL $N_RIGHT}/(main|viins)/$LEFT INSERT $RIGHT}"
+    RPS1="${${KEYMAP/vicmd/$N_LEFT NORMAL $N_RIGHT}/(main|viins)/%~}"
     RPS2=$RPS1
     zle reset-prompt
 }
@@ -53,5 +53,11 @@ PERL_LOCAL_LIB_ROOT="/home/julian/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_
 PERL_MB_OPT="--install_base \"/home/julian/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/julian/perl5"; export PERL_MM_OPT;
 
+export PATH="$PATH:$HOME/.local/bin"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh"  ] && . "$NVM_DIR/nvm.sh"
+
 # Needs to be at end
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
