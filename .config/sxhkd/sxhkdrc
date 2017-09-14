@@ -56,7 +56,8 @@ super + b
     bspc query -N -n focused > /tmp/scratchid; \
     bspc node --flag hidden
 super + n
-    bspc node `cat /tmp/scratchid` --flag hidden
+    bspc node `cat /tmp/scratchid` --flag hidden; \
+    bspc node `cat /tmp/scratchid` -f
 
 #
 # state/flags
