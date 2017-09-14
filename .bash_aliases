@@ -20,3 +20,8 @@ function cdup() {
 }
 
 alias ossh="openstack server ssh -l ubuntu --public"
+
+function src() {
+    [[ "$SHELL" == "/bin/zsh" ]] && source ~/.zshrc
+    [[ "$SHELL" == "/bin/bash" ]] && source ~/.bashrc
+}
