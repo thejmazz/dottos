@@ -29,6 +29,7 @@ Plug 'othree/es.next.syntax.vim', { 'for': 'javascript' }        " ESNext
 Plug 'mxw/vim-jsx'                                               " JSX syntax highlighting and indenting
 Plug 'elzr/vim-json', { 'for': 'json' }                          " Better JSON
 Plug 'tmux-plugins/vim-tmux'                                     " For .tmux.conf
+Plug 'hashivim/vim-terraform'                                    " basic vim/terraform integration
 
 Plug 'fneu/breezy'                                               " Colorscheme inspired by KDE breezy template
 Plug 'davidklsn/vim-sialoquent'
