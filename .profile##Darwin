@@ -54,3 +54,4 @@ export PATH="$PATH:$HOME/bin/htslib/bin"
 # bcftools
 export PATH="$PATH:$HOME/bin/bcftools/bin"
 
+export PATH="$PATH:$HOME/Library/Python/2.7/bin"
