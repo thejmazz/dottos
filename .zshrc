@@ -14,7 +14,20 @@ zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
 compinit
 
-PROMPT="|> "
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git*' formats "%b"
+precmd() {
+    vcs_info
+}
+
+# source <(antibody init)
+# antibody bundle mafredri/zsh-async
+# antibody bundle sindresorhus/pure
+
+setopt prompt_subst
+# PROMPT="|> "
+PROMPT="❯ "
 [[ -n "$SSH_CLIENT" ]] && PROMPT="[%n@%M]|> "
 
 function zle-line-init zle-keymap-select {
@@ -29,8 +42,12 @@ function zle-line-init zle-keymap-select {
     N_LEFT=$LEFT; N_RIGHT=$RIGHT
     N_LEFT="<=="; N_RIGHT="==>"
 
+    MYRIGHT="%~"
+    [[ ! -z "${vcs_info_msg_0_}" ]] && MYRIGHT="[${vcs_info_msg_0_}] $MYRIGHT"
+
     # RPS1="${${KEYMAP/vicmd/$N_LEFT NORMAL $N_RIGHT}/(main|viins)/$LEFT INSERT $RIGHT}"
-    RPS1="${${KEYMAP/vicmd/$N_LEFT NORMAL $N_RIGHT}/(main|viins)/%~}"
+    # RPS1="${${KEYMAP/vicmd/$N_LEFT NORMAL $N_RIGHT}/(main|viins)/[${vcs_info_msg_0_}] %~}"
+    RPS1="${${KEYMAP/vicmd/$N_LEFT NORMAL $N_RIGHT}/(main|viins)/$MYRIGHT}"
     RPS2=$RPS1
     zle reset-prompt
 }
