@@ -101,10 +101,15 @@ ctrl + alt - right       :    kwmc window -m space right
 alt + shift - h          :    kwmc space -fExperimental left
 alt + shift - l          :    kwmc space -fExperimental right
 
-# Move Focused Window To Screen
+# Move Focused Window To Display
 ctrl + alt - 1           :    kwmc window -m display 0
 ctrl + alt - 2           :    kwmc window -m display 1
 ctrl + alt - 3           :    kwmc window -m display 2
+
+# Move focused window to screen
+prefix - 1               :    kwmc window -m space 1
+prefix - 2               :    kwmc window -m space 2
+prefix - 3               :    kwmc window -m space 3
 
 # Change container type of window
 prefix - m               :    kwmc window -c type monocle
