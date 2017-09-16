@@ -1,4 +1,5 @@
 alias cls="clear; ls"
+alias ll="ls++ --potsf"
 
 # alias tmux="tmux -2"
 #alias tmux="TERM=screen-256color tmux"
@@ -13,4 +14,14 @@ alias tta="ta 0"
 
 alias dps="docker ps --format 'table {{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}'"
 
-alias cdup="cd `git rev-parse --show-toplevel`"
+# alias cdup="cd `git rev-parse --show-toplevel`"
+function cdup() {
+    cd `git rev-parse --show-toplevel`
+}
+
+alias ossh="openstack server ssh -l ubuntu --public"
+
+function src() {
+    [[ "$SHELL" == *"zsh" ]] && source ~/.zshrc
+    [[ "$SHELL" == *"bash" ]] && source ~/.bashrc
+}

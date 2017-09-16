@@ -21,6 +21,8 @@ Plug 'jlanzarotta/bufexplorer'                                   " Bufexplorer
 Plug 'dhruvasagar/vim-table-mode'                                " Table mode for instant table creation
 Plug 'ntpeters/vim-better-whitespace'                            " Better whitespace highlighting for Vim
 Plug 'sbdchd/neoformat'                                          " A (Neo)vim plugin for formatting code
+Plug 'ap/vim-css-color'                                          " Preview colours in source code while editing
+Plug 'embear/vim-foldsearch'                                     " fold away lines that don't match a specific search pattern
 
 Plug 'tikhomirov/vim-glsl'                                       " OpenGL Shading Language
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }             " CoffeeScript
@@ -54,18 +56,20 @@ let g:calendar_google_task = 1
 
 let g:deoplete#enable_at_startup = 1
 
-let g:lightline = {
-    \ 'colorscheme': 'gruvbox',
-    \ 'tabline': {
-    \   'left': [ [ 'tabs' ] ],
-    \   'right': [ [] ]
-    \ },
-    \ 'tab': {
-    \   'active': [ 'filename', 'modified' ],
-    \   'inactive': [ 'filename', 'modified' ]
-    \ },
-    \ 'tabline_subseparator': { 'left': '', 'right': '' }
-    \ }
+if !empty($DISPLAY)
+    let g:lightline = {
+        \ 'colorscheme': 'gruvbox',
+        \ 'tabline': {
+        \   'left': [ [ 'tabs' ] ],
+        \   'right': [ [] ]
+        \ },
+        \ 'tab': {
+        \   'active': [ 'filename', 'modified' ],
+        \   'inactive': [ 'filename', 'modified' ]
+        \ },
+        \ 'tabline_subseparator': { 'left': '', 'right': '' }
+        \ }
+endif
 
 let g:NERDTreeWinPos = "right"
 " let g:NERDTreeDirArrowExpandable =  '-<' "'|>'
@@ -83,6 +87,7 @@ set showmode            " Show current mode
 "set showmatch           " Show matching brackets
 set noerrorbells        " No beeps
 set termguicolors       " Uses guifg,guibg highlight attributes
+set mouse=a
 
 " === netrw options ===
 let g:netrw_banner = 0              " Hide banner
@@ -90,8 +95,11 @@ let g:netrw_banner = 0              " Hide banner
 let g:netrw_winsize = 25            " Set width to 25%
 
 " === Colorscheme ===
-set background=dark
-silent! colorscheme gruvbox "neodark
+if !empty($DISPLAY)
+    set background=dark
+    colorscheme gruvbox
+endif
+
 let g:gruvbox_contrast_dark = 'soft'
 let g:gitgutter_override_sign_column_highlight = 0
 highlight Normal guibg=NONE ctermbg=NONE
@@ -158,11 +166,9 @@ map <Leader>n :NERDTreeTabsToggle<CR>
 map <Leader>w :w<CR>
 map <Leader>te :tabe.<CR>
 
-" nnoremap ' /
 nnoremap '' :noh<CR>
 nnoremap * *N
 nnoremap ; :
-
 
 " Buffer helpers
 nnoremap gb :ls<CR>:b<Space>
@@ -232,6 +238,7 @@ nnoremap <S-k> :call UpStep()<CR>
 
 nnoremap ftj :set filetype=javascript<CR>
 nnoremap ftx :set filetype=javascript.jsx<CR>
+nnoremap fts :set filetype=sql<CR>
 nnoremap ftg :set filetype=glsl<CR>
 
 nnoremap <Leader>r :source $MYVIMRC<CR>

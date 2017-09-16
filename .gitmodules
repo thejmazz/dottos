@@ -1,0 +1,9 @@
+[submodule ".yadm-project"]
+	path = .yadm-project
+	url = https://github.com/TheLocehiliosan/yadm.git
+[submodule ".playbooks"]
+	path = .playbooks
+	url = https://github.com/thejmazz/playbooks.git
+[submodule ".zsh/zsh-syntax-highlighting"]
+	path = .zsh/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
