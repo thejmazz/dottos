@@ -21,6 +21,8 @@ precmd() {
     vcs_info
 }
 
+source ~/.local/share/icons-in-terminal/icons_bash.sh
+
 # source <(antibody init)
 # antibody bundle mafredri/zsh-async
 # antibody bundle sindresorhus/pure
@@ -42,8 +44,11 @@ function zle-line-init zle-keymap-select {
     N_LEFT=$LEFT; N_RIGHT=$RIGHT
     N_LEFT="<=="; N_RIGHT="==>"
 
+    # MYRIGHT="$md_folder %~"
+    # MYRIGHT="[  %~]"
     MYRIGHT="%~"
-    [[ ! -z "${vcs_info_msg_0_}" ]] && MYRIGHT="[${vcs_info_msg_0_}] $MYRIGHT"
+    # [[ ! -z "${vcs_info_msg_0_}" ]] && MYRIGHT="[$oct_git_branch ${vcs_info_msg_0_}] $MYRIGHT"
+    [[ ! -z "${vcs_info_msg_0_}" ]] && MYRIGHT="[ ${vcs_info_msg_0_}] $MYRIGHT"
 
     # RPS1="${${KEYMAP/vicmd/$N_LEFT NORMAL $N_RIGHT}/(main|viins)/$LEFT INSERT $RIGHT}"
     # RPS1="${${KEYMAP/vicmd/$N_LEFT NORMAL $N_RIGHT}/(main|viins)/[${vcs_info_msg_0_}] %~}"
