@@ -3,6 +3,9 @@
 echo "Init submodules"
 source <(curl -fsSL 'https://github.com/TheLocehiliosan/yadm/raw/master/bootstrap') && yadm submodule update --init --recursive
 
+echo "Installing antibody"
+curl -fssL https://git.io/antibody | bash -s
+
 if command -v nvim >/dev/null 2>&1; then
     echo "Installing vim-plug plugins for Neovim"
     nvim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
