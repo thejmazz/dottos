@@ -42,7 +42,8 @@ if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_CONNECTION" ]; then
 fi
 
 # ALIASES
-alias ls="ls --color"
+[[ "`uname`" != "Darwin" ]] && alias ls="ls --color"
+[[ "`uname`" == "Darwin" ]] && alias ls="ls -G"
 [[ -f $HOME/.bash_aliases ]] && source $HOME/.bash_aliases
 
 [[ -f $HOME/.dircolors ]] && eval $(dircolors -b $HOME/.dircolors)
