@@ -21,7 +21,7 @@ precmd() {
     vcs_info
 }
 
-source ~/.local/share/icons-in-terminal/icons_bash.sh
+[[ -f $HOME/.local/share/icons-in-terminal/icons_bash.sh ]] && source $HOME/.local/share/icons-in-terminal/icons_bash.sh
 
 # source <(antibody init)
 # antibody bundle mafredri/zsh-async
@@ -47,6 +47,7 @@ function zle-line-init zle-keymap-select {
     # MYRIGHT="$md_folder %~"
     # MYRIGHT="[  %~]"
     MYRIGHT="%~"
+    [[ `print -P "%~"` == "~" ]] && MYRIGHT=""
     # [[ ! -z "${vcs_info_msg_0_}" ]] && MYRIGHT="[$oct_git_branch ${vcs_info_msg_0_}] $MYRIGHT"
     [[ ! -z "${vcs_info_msg_0_}" ]] && MYRIGHT="[ ${vcs_info_msg_0_}] $MYRIGHT"
 
