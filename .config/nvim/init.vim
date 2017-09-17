@@ -32,6 +32,7 @@ Plug 'mxw/vim-jsx'                                               " JSX syntax hi
 Plug 'elzr/vim-json', { 'for': 'json' }                          " Better JSON
 Plug 'tmux-plugins/vim-tmux'                                     " For .tmux.conf
 Plug 'hashivim/vim-terraform'                                    " basic vim/terraform integration
+Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }          " Markdown for Vim: a complete environment to create Markdown files with a syntax highlight that doesn't suck!
 
 Plug 'fneu/breezy'                                               " Colorscheme inspired by KDE breezy template
 Plug 'davidklsn/vim-sialoquent'
