@@ -1,6 +1,8 @@
 #!/bin/bash
 
-ICON="#[fg=colour7,bg=colour4]"
+[[ -n "$SSH_CLIENT" ]] && ICON="#[fg=colour7,bg=colour6]"
+[[ -z "$SSH_CLIENT" ]] && ICON="#[fg=colour7,bg=colour4]"
+
 ITEM="#[fg=colour0,bg=colour7]"
 RESET="#[fg=default,bg=default]"
 
