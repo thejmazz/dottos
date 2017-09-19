@@ -72,7 +72,7 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_CONNECTION" ]; then
-    export DISPLAY=:0.0
+    [[ -z "$DISPLAY" ]] && export DISPLAY=:0.0
 fi
 
 # ALIASES
