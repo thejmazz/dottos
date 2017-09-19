@@ -23,6 +23,8 @@ precmd() {
 
 [[ -f $HOME/.local/share/icons-in-terminal/icons_bash.sh ]] && source $HOME/.local/share/icons-in-terminal/icons_bash.sh
 
+[[ `hostname` == "air" ]] && source $HOME/.zsh/ensure-enabled-tmux.sh
+
 # source <(antibody init)
 # antibody bundle mafredri/zsh-async
 # antibody bundle sindresorhus/pure
