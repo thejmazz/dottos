@@ -80,7 +80,8 @@ PERL_MM_OPT="INSTALL_BASE=/home/julian/perl5"; export PERL_MM_OPT;
 export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 
 export NVM_DIR="$HOME/.nvm"
-alias nvm-init='source "$NVM_DIR/nvm.sh"'
+alias nvm-init="source $NVM_DIR/nvm.sh"
+[[ "`uname`" != "Darwin" ]] && [[ -f $NVM_DIR/nvm.sh ]] && source $NVM_DIR/nvm.sh
 
 # Needs to be at end
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
