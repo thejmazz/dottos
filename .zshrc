@@ -41,7 +41,7 @@ precmd() {
 setopt prompt_subst
 # PROMPT="|> "
 PROMPT="❯ "
-[[ -n "$SSH_CLIENT" ]] && PROMPT="[%n@%M]|> "
+[[ -n "$SSH_CLIENT" ]] && PROMPT="[%n@%M] $PROMPT"
 
 function zle-line-init zle-keymap-select {
     # LEFT="=="; RIGHT="=="
