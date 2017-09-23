@@ -13,6 +13,7 @@ alias tkss='tmux kill-session -t'
 alias tta="ta 0"
 
 alias dps="docker ps --format 'table {{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}'"
+alias gpg=gpg2
 
 # alias cdup="cd `git rev-parse --show-toplevel`"
 function cdup() {
