@@ -38,7 +38,7 @@ DOCKER() {
     else
         # echo -n "$ICON 🐳  $ITEM $count $RESET "
         # echo -n "$ICON D $ITEM $count $RESET "
-        echo -n "$ICON  $ITEM $count $RESET "
+        echo -n "$ICON  $ITEM $count $RESET"
     fi
 }
 

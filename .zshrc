@@ -41,7 +41,7 @@ precmd() {
 setopt prompt_subst
 # PROMPT="|> "
 PROMPT="❯ "
-[[ -n "$SSH_CLIENT" ]] && PROMPT="[%n@%M]|> "
+[[ -n "$SSH_CLIENT" ]] && PROMPT="[%n@%M] $PROMPT"
 
 MYRIGHT="%~"
 [[ `print -P "%~"` == "~" ]] && MYRIGHT=""
@@ -74,7 +74,7 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_CONNECTION" ]; then
-    export DISPLAY=:0.0
+    [[ -z "$DISPLAY" ]] && export DISPLAY=:0.0
 fi
 
 source ~/.zsh/aws.plugin.zsh
