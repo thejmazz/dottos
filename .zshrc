@@ -43,14 +43,14 @@ setopt prompt_subst
 PROMPT="❯ "
 [[ -n "$SSH_CLIENT" ]] && PROMPT="[%n@%M]|> "
 
+MYRIGHT="%~"
+[[ `print -P "%~"` == "~" ]] && MYRIGHT=""
+[[ ! -z "${vcs_info_msg_0_}" ]] && MYRIGHT="[ ${vcs_info_msg_0_}] $MYRIGHT"
+[[ ! -z "${AWS_PROFILE}" ]] && MYRIGHT="[ ${AWS_PROFILE}] $MYRIGHT"
+RPS1="$MYRIGHT"
+
 function zle-line-init zle-keymap-select {
-    # LEFT="=="; RIGHT="=="
-    # LEFT=">-"; RIGHT="-<"
-    # LEFT=">>="; RIGHT="=<<"
-    # LEFT="<|"; RIGHT="|>"
-    # LEFT="<-"; RIGHT="->"
     LEFT="==>"; RIGHT="<=="
-    # LEFT="<~"; RIGHT="~>"
 
     N_LEFT=$LEFT; N_RIGHT=$RIGHT
     N_LEFT="<=="; N_RIGHT="==>"
@@ -59,8 +59,10 @@ function zle-line-init zle-keymap-select {
     # MYRIGHT="[  %~]"
     MYRIGHT="%~"
     [[ `print -P "%~"` == "~" ]] && MYRIGHT=""
+    # TODO how to use environment variables for icons in zsh prompt?
     # [[ ! -z "${vcs_info_msg_0_}" ]] && MYRIGHT="[$oct_git_branch ${vcs_info_msg_0_}] $MYRIGHT"
     [[ ! -z "${vcs_info_msg_0_}" ]] && MYRIGHT="[ ${vcs_info_msg_0_}] $MYRIGHT"
+    [[ ! -z "${AWS_PROFILE}" ]] && MYRIGHT="[ ${AWS_PROFILE}] $MYRIGHT"
 
     # RPS1="${${KEYMAP/vicmd/$N_LEFT NORMAL $N_RIGHT}/(main|viins)/$LEFT INSERT $RIGHT}"
     # RPS1="${${KEYMAP/vicmd/$N_LEFT NORMAL $N_RIGHT}/(main|viins)/[${vcs_info_msg_0_}] %~}"
@@ -74,6 +76,8 @@ zle -N zle-keymap-select
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_CONNECTION" ]; then
     export DISPLAY=:0.0
 fi
+
+source ~/.zsh/aws.plugin.zsh
 
 # ALIASES
 [[ "`uname`" != "Darwin" ]] && alias ls="ls --color"
