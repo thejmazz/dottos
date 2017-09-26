@@ -47,6 +47,7 @@ MYRIGHT="%~"
 [[ `print -P "%~"` == "~" ]] && MYRIGHT=""
 [[ ! -z "${vcs_info_msg_0_}" ]] && MYRIGHT="[ ${vcs_info_msg_0_}] $MYRIGHT"
 [[ ! -z "${AWS_PROFILE}" ]] && MYRIGHT="[ ${AWS_PROFILE}] $MYRIGHT"
+[[ ! -z "${OS_PROJECT_NAME}" ]] && MYRIGHT="[ ${OS_PROJECT_NAME}] $MYRIGHT"
 RPS1="$MYRIGHT"
 
 function zle-line-init zle-keymap-select {
@@ -63,6 +64,7 @@ function zle-line-init zle-keymap-select {
     # [[ ! -z "${vcs_info_msg_0_}" ]] && MYRIGHT="[$oct_git_branch ${vcs_info_msg_0_}] $MYRIGHT"
     [[ ! -z "${vcs_info_msg_0_}" ]] && MYRIGHT="[ ${vcs_info_msg_0_}] $MYRIGHT"
     [[ ! -z "${AWS_PROFILE}" ]] && MYRIGHT="[ ${AWS_PROFILE}] $MYRIGHT"
+    [[ ! -z "${OS_PROJECT_NAME}" ]] && MYRIGHT="[ ${OS_PROJECT_NAME}] $MYRIGHT"
 
     # RPS1="${${KEYMAP/vicmd/$N_LEFT NORMAL $N_RIGHT}/(main|viins)/$LEFT INSERT $RIGHT}"
     # RPS1="${${KEYMAP/vicmd/$N_LEFT NORMAL $N_RIGHT}/(main|viins)/[${vcs_info_msg_0_}] %~}"
@@ -78,6 +80,7 @@ if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_CONNECTION" ]; then
 fi
 
 source ~/.zsh/aws.plugin.zsh
+source ~/.zsh/os.plugin.zsh
 
 # ALIASES
 [[ "`uname`" != "Darwin" ]] && alias ls="ls --color"
