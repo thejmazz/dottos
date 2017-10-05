@@ -53,12 +53,12 @@ super + g
 super + d
     tdrop --auto-detect-wm -w 70% -h 50% -x 15% -y 25% konsole
 super + b
-    bspc query -N -n focused > /tmp/scratchid; \
+    bspc query -N -n focused >> /tmp/scratchid; \
     bspc node --flag hidden
 super + n
-    bspc node `cat /tmp/scratchid` --flag hidden; \
-    bspc node `cat /tmp/scratchid` -f
-
+    bspc node `cat /tmp/scratchid | head -n 1` --flag hidden; \
+    bspc node `cat /tmp/scratchid | head -n 1` -f; \
+    cat /tmp/scratchid | tail -n +2 > /tmp/scratchid
 #
 # state/flags
 #
