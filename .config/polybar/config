@@ -52,7 +52,7 @@ font-2 = FontAwesome:size=14;4
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = filesystem volume wlan memory cpu battery temperature date powermenu
+modules-right = filesystem volume wlan cpu memory battery temperature date powermenu
 
 tray-position = right
 tray-padding = 2
