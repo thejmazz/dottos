@@ -45,7 +45,7 @@ module-margin-right = 2
 
 font-0 = fixed:pixelsize=11;2
 font-1 = MaterialIcons:size=16;5
-font-2 = FontAwesome:size=16;4
+font-2 = FontAwesome:size=14;4
 ; font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 ; font-2 = icons-in-terminal:fontformat=truetype:size=8:antialias=false;0
 ; font-3 = siji:pixelsize=10;1
@@ -215,7 +215,8 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
 format-underline = #f90000
 label = %percentage%%
