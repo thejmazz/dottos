@@ -116,21 +116,34 @@ enable-scroll = true
 ; ws-icon-default = ○
 ; format = <label-state><label-mode>
 
-label-focused = ●
+; label-focused = ●
+; label-focused = ■
+label-focused = ▣
+; label-focused = ◉
+; label-focused = ◈
 ; label-focused-foreground = ${colors.background}
 ; label-focused-background = ${colors.primary}
-label-focused-foreground = ${colors.primary}
+; label-focused-foreground = ${colors.primary}
 label-focused-background = ${colors.background}
 label-focused-padding = 2
 
-label-occupied = ◒
+; label-occupied = ◒
+; label-occupied = ▣
+label-occupied = □
+; label-occupied = ◪
+; label-occupied = ◎
+; label-occupied = ○
+; label-occupied = ◇
 label-occupied-padding = 2
 
 label-urgent = ○
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
-label-empty = ○
+; label-empty = ○
+; label-empty = ◌
+label-empty = □
+; label-empty = ◇
 label-empty-padding = 2
 
 ; format-padding = 2
