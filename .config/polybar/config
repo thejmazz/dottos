@@ -17,17 +17,19 @@ foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
+transparent = #00ffffff
+purple = #A15FA9
 
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
-width = 100%
+width = 98%
 height = 28
-;offset-x = 1%
-;offset-y = 1%
+offset-x = 12
+offset-y = 12
 radius = 0.0
 fixed-center = false
 
-background = ${colors.background}
+background = ${colors.transparent}
 foreground = ${colors.foreground}
 
 overline-size = 0
@@ -35,13 +37,12 @@ underline-size = 0
 line-color = #f00
 
 border-size = 0
-border-color = #00000000
+border-color = #ff000000
 
 padding-left = 0
 padding-right = 2
 
-module-margin-left = 1
-module-margin-right = 2
+module-margin = 1
 
 font-0 = fixed:pixelsize=11;2
 font-1 = MaterialIcons:size=16;5
@@ -52,14 +53,14 @@ font-2 = FontAwesome:size=14;4
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = filesystem volume wlan cpu memory battery temperature date powermenu
+modules-right = volume wlan cpu memory battery temperature date powermenu
 
 tray-position = right
 tray-padding = 2
 ;tray-transparent = true
 ;tray-background = #0063ff
 
-;wm-restack = bspwm
+wm-restack = bspwm
 ;wm-restack = i3
 
 ;override-redirect = true
@@ -73,6 +74,9 @@ tray-padding = 2
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
+format-background = ${colors.foreground}
+format-foreground = ${colors.background}
+format-padding = 2
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -96,10 +100,13 @@ interval = 25
 
 mount-0 = /
 
+format-mounted = <label-mounted>
+
 ; label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 ; label-mounted =  %mountpoint%%{F-}: %percentage_used%%
 ; label-mounted =   %percentage_used%%
 label-mounted =   %free%
+label-mounted-background = ${colors.background}
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
@@ -112,9 +119,13 @@ enable-scroll = true
 
 label-focused = ●
 label-focused-underline = ${colors.primary}
+label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.purple}
 label-focused-padding = 2
 
-label-occupied = ○
+label-occupied = ●
+label-occupied-foreground = ${colors.purple}
+label-occupied-background = ${colors.foreground}
 label-occupied-padding = 2
 
 label-urgent = ○
@@ -123,6 +134,7 @@ label-urgent-padding = 2
 
 label-empty = ○
 label-empty-foreground = ${colors.foreground-alt}
+label-empty-background = ${colors.foreground}
 label-empty-padding = 2
 
 ; format-padding = 2
@@ -216,17 +228,27 @@ card = intel_backlight
 type = internal/cpu
 interval = 2
 
-format-prefix = " "
+format-prefix = 
+format-prefix-padding = 1
 format-prefix-foreground = ${colors.foreground}
+format-prefix-background = ${colors.purple}
 format-underline = #f90000
+label-background = ${colors.foreground}
+label-foreground = ${colors.background}
 label = %percentage%%
+label-padding = 2
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = 
+format-prefix-padding = 1
+format-prefix-background = ${colors.purple}
 format-underline = #4bffdc
 label = %percentage_used%%
+label-padding = 2
+label-background = ${colors.foreground}
+label-foreground = ${colors.background}
 
 [module/wlan]
 type = internal/network
@@ -277,24 +299,36 @@ time = %H:%M
 time-alt = %H:%M:%S
 
 format-prefix = 
+format-prefix-padding = 1
+format-prefix-background = ${colors.purple}
 format-underline = #0a6cf5
 
 label = %date% %time%
+label-padding = 2
+label-background = ${colors.foreground}
+label-foreground = ${colors.background}
 
 [module/volume]
 type = internal/volume
 
-format-volume = <ramp-volume> <label-volume>
+format-volume = <ramp-volume><label-volume>
 label-volume =  %percentage%%
-label-volume-foreground = ${colors.foreground}
+label-volume-padding = 2
+label-volume-foreground = ${colors.background}
+label-volume-background = ${colors.foreground}
 
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
+ramp-volume-background = ${colors.purple}
+ramp-volume-padding = 1
 
 ; format-muted-prefix = "mute"
 format-muted-foreground = ${colors.foreground-alt}
 label-muted = 
+label-muted-padding = 1
+label-muted-background = ${colors.purple}
+label-muted-foreground = ${colors.foreground}
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
@@ -319,9 +353,12 @@ battery = BAT0
 adapter = ADP1
 full-at = 98
 
-format-charging = <animation-charging> <label-charging>
+format-charging = <animation-charging><label-charging>
 
-format-discharging = <ramp-capacity> <label-discharging>
+format-discharging = <ramp-capacity><label-discharging>
+label-discharging-background = ${colors.foreground}
+label-discharging-foreground = ${colors.background}
+label-discharging-padding = 2
 
 format-full-prefix = " "
 
@@ -330,6 +367,9 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
+
+ramp-capacity-background = ${colors.purple}
+ramp-capacity-padding = 2
 
 animation-charging-0 = 
 animation-charging-1 = 
@@ -343,28 +383,37 @@ type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
 
-format = <ramp> <label>
+format = <ramp><label>
 format-underline = #f50a4d
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
 label = %temperature%
+label-background = ${colors.foreground}
+label-foreground = ${colors.background}
 label-warn = %temperature%
+label-padding = 2
 
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 
+ramp-background = ${colors.purple}
+ramp-padding = 1
+
+
 [module/powermenu]
 type = custom/menu
 
 format-spacing = 1
+format-background = ${colors.purple}
+format-padding = 2
 
 label-open = 
 ; label-open-foreground = ${colors.primary}
 label-close = 
 ; label-close-foreground = ${colors.secondary}
-label-separator = |
+label-separator = " "
 label-separator-foreground = ${colors.foreground-alt}
 
 menu-0-0 = 
