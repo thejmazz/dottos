@@ -289,6 +289,7 @@ format-discharging = <ramp-capacity><label-discharging>
 
 format-full-prefix = 
 format-full-prefix-padding-right = 1
+format-full-prefix-foreground = ${colors.primary}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
