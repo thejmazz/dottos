@@ -9,12 +9,13 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #222
+background = #dfdfdf
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
+foreground = #222
 foreground-alt = #555
-primary = #ffb52a
+; primary = #A15FA9
+primary = #268BD2
 secondary = #e60053
 alert = #bd2c40
 transparent = #00ffffff
@@ -22,14 +23,14 @@ purple = #A15FA9
 
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
-width = 98%
+width = 100%
 height = 28
-offset-x = 12
-offset-y = 12
+offset-x = 0
+offset-y = 0
 radius = 0.0
 fixed-center = false
 
-background = ${colors.transparent}
+background = ${colors.background}
 foreground = ${colors.foreground}
 
 overline-size = 0
@@ -40,9 +41,10 @@ border-size = 0
 border-color = #ff000000
 
 padding-left = 0
-padding-right = 2
+padding-right = 0
 
-module-margin = 1
+module-margin = 0
+module-margin-right = 4
 
 font-0 = fixed:pixelsize=11;2
 font-1 = MaterialIcons:size=16;5
@@ -74,9 +76,6 @@ wm-restack = bspwm
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
-format-background = ${colors.foreground}
-format-foreground = ${colors.background}
-format-padding = 2
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -118,14 +117,13 @@ enable-scroll = true
 ; format = <label-state><label-mode>
 
 label-focused = ●
-label-focused-underline = ${colors.primary}
-label-focused-foreground = ${colors.foreground}
-label-focused-background = ${colors.purple}
+; label-focused-foreground = ${colors.background}
+; label-focused-background = ${colors.primary}
+label-focused-foreground = ${colors.primary}
+label-focused-background = ${colors.background}
 label-focused-padding = 2
 
-label-occupied = ●
-label-occupied-foreground = ${colors.purple}
-label-occupied-background = ${colors.foreground}
+label-occupied = ◒
 label-occupied-padding = 2
 
 label-urgent = ○
@@ -133,8 +131,6 @@ label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
 label-empty = ○
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-background = ${colors.foreground}
 label-empty-padding = 2
 
 ; format-padding = 2
@@ -229,26 +225,19 @@ type = internal/cpu
 interval = 2
 
 format-prefix = 
-format-prefix-padding = 1
-format-prefix-foreground = ${colors.foreground}
-format-prefix-background = ${colors.purple}
-format-underline = #f90000
-label-background = ${colors.foreground}
-label-foreground = ${colors.background}
+format-prefix-padding-right = 1
+format-prefix-foreground = ${colors.primary}
 label = %percentage%%
-label-padding = 2
 
 [module/memory]
 type = internal/memory
 interval = 2
+
 format-prefix = 
-format-prefix-padding = 1
-format-prefix-background = ${colors.purple}
-format-underline = #4bffdc
+format-prefix-padding-right = 1
+format-prefix-foreground = ${colors.primary}
+
 label = %percentage_used%%
-label-padding = 2
-label-background = ${colors.foreground}
-label-foreground = ${colors.background}
 
 [module/wlan]
 type = internal/network
@@ -293,42 +282,31 @@ type = internal/date
 interval = 1
 
 date =
-date-alt = " %Y-%m-%d"
+date-alt = "%Y-%m-%d "
 
 time = %H:%M
 time-alt = %H:%M:%S
 
 format-prefix = 
-format-prefix-padding = 1
-format-prefix-background = ${colors.purple}
-format-underline = #0a6cf5
+format-prefix-padding-right = 1
+format-prefix-foreground = ${colors.primary}
 
-label = %date% %time%
-label-padding = 2
-label-background = ${colors.foreground}
-label-foreground = ${colors.background}
+label = %date%%time%
 
 [module/volume]
 type = internal/volume
 
 format-volume = <ramp-volume><label-volume>
 label-volume =  %percentage%%
-label-volume-padding = 2
-label-volume-foreground = ${colors.background}
-label-volume-background = ${colors.foreground}
 
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
-ramp-volume-background = ${colors.purple}
-ramp-volume-padding = 1
+ramp-volume-padding-right = 1
+ramp-volume-foreground = ${colors.primary}
 
-; format-muted-prefix = "mute"
-format-muted-foreground = ${colors.foreground-alt}
 label-muted = 
-label-muted-padding = 1
-label-muted-background = ${colors.purple}
-label-muted-foreground = ${colors.foreground}
+label-muted-foreground = ${colors.primary}
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
@@ -354,13 +332,10 @@ adapter = ADP1
 full-at = 98
 
 format-charging = <animation-charging><label-charging>
-
 format-discharging = <ramp-capacity><label-discharging>
-label-discharging-background = ${colors.foreground}
-label-discharging-foreground = ${colors.background}
-label-discharging-padding = 2
 
-format-full-prefix = " "
+format-full-prefix = 
+format-full-prefix-padding-right = 1
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -368,15 +343,17 @@ ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
 
-ramp-capacity-background = ${colors.purple}
-ramp-capacity-padding = 2
+ramp-capacity-padding-right = 1
+ramp-capacity-foreground = ${colors.primary}
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
+animation-charging-foreground = ${colors.primary}
 animation-charging-framerate = 750
+animation-charging-padding-right = 1
 
 [module/temperature]
 type = internal/temperature
@@ -384,35 +361,28 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp><label>
-format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
+format-warn = <ramp><label-warn>
 
 label = %temperature%
-label-background = ${colors.foreground}
-label-foreground = ${colors.background}
 label-warn = %temperature%
-label-padding = 2
 
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 
-ramp-background = ${colors.purple}
-ramp-padding = 1
+ramp-padding-right = 1
+ramp-foreground = ${colors.primary}
 
 
 [module/powermenu]
 type = custom/menu
 
-format-spacing = 1
-format-background = ${colors.purple}
-format-padding = 2
+format-foreground = ${colors.primary}
+format = <menu> <label-toggle>
 
 label-open = 
-; label-open-foreground = ${colors.primary}
 label-close = 
-; label-close-foreground = ${colors.secondary}
+label-close-foreground = ${colors.alert}
 label-separator = " "
 label-separator-foreground = ${colors.foreground-alt}
 
