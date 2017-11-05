@@ -43,7 +43,7 @@ font-2 = FontAwesome:size=14;4
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = volume wlan cpu memory battery temperature date powermenu
+modules-right = xbacklight volume wlan cpu memory battery temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -151,8 +151,16 @@ label-song-ellipsis = true
 [module/xbacklight]
 type = internal/xbacklight
 
-format = <label> <bar>
-label = BL
+format = <ramp><label>
+label = %percentage%%
+
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+ramp-padding-right = 1
+ramp-foreground = ${colors.primary}
 
 bar-width = 10
 bar-indicator = |
@@ -164,11 +172,6 @@ bar-fill-foreground = #9f78e1
 bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
-
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = intel_backlight
 
 [module/cpu]
 type = internal/cpu
