@@ -30,7 +30,9 @@ background-alt = #444
 foreground = #222
 foreground-alt = #555
 ; primary = #A15FA9
-primary = #268BD2
+; primary = #268BD2
+; primary = #EE33A0
+primary = #0C99A2
 secondary = #e60053
 alert = #bd2c40
 transparent = #00ffffff
@@ -67,7 +69,7 @@ font-2 = FontAwesome:size=14;4
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = xbacklight volume wlan cpu memory battery temperature date powermenu
+modules-right = xbacklight volume wlan cpu bluetooth memory battery temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -158,6 +160,16 @@ label-empty-padding = 2
 ;label-sticky-foreground = #fba922
 ;label-private = 
 ;label-private-foreground = #bd2c40
+
+[module/bluetooth]
+type = custom/script
+interval = 5
+
+exec = ~/.config/polybar/scripts/bluetooth/connected.sh
+click-left = ~/.config/polybar/scripts/bluetooth/connect.js
+click-right = ~/.config/polybar/scripts/bluetooth/disconnect.js
+
+format-foreground = ${colors.primary}
 
 [module/mpd]
 type = internal/mpd
