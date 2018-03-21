@@ -90,7 +90,14 @@ visualizer_look = +|
 ## Alternative subset of 256 colors for terminals that support it.
 ##
 #visualizer_color = 41, 83, 119, 155, 185, 215, 209, 203, 197, 161
-#
+
+
+progressbar_look =  "─╼ "
+progressbar_boldness = "yes"
+# progressbar_color = "black"
+# progressbar_elapsed_color = "white"
+
+
 ##### system encoding #####
 ##
 ## ncmpcpp should detect your charset encoding but if it failed to do so, you
