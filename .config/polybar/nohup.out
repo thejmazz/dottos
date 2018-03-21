@@ -1,0 +1,189 @@
+xfce4-panel: Failed to connect to session manager: Failed to connect to the session manager: SESSION_MANAGER environment variable not defined
+xfce4-panel: No window manager registered on screen 0. To start the panel without this check, run with --disable-wm-check.
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+[93m[WARN 21:56:42.974327][0m [Environment:161] XDG_SESSION_CLASS not set in this environment!
+[93m[WARN 21:56:42.974376][0m [Environment:179] Neither of XDG_SESSION_DESKTOP, XDG_CURRENT_DESKTOP or DESKTOP_SESSION is set in this environment!
+[93m[WARN 21:56:42.974411][0m [Environment:192] XDG_SESSION_TYPE not set in this environment!
+[93m[WARN 21:56:43.297180][0m [Environment:179] Neither of XDG_SESSION_DESKTOP, XDG_CURRENT_DESKTOP or DESKTOP_SESSION is set in this environment!
+[93m[WARN 21:56:43.367320][0m Creating surface took WAY TOO LONG (50ms), enabled downscaling for this cache!
+[91m[CRITICAL 21:56:56.387209][0m [DockWindow:297] Retry #1 update_size_and_position() to force requested values!
+[91m[CRITICAL 21:56:58.225946][0m [DockWindow:297] Retry #1 update_size_and_position() to force requested values!
+[93m[WARN 21:58:26.476718][0m [AbstractMain:42] Caught signal (15), exiting
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+
+(xfce4-panel:9818): Gtk-WARNING **: Default font does not have a positive size
+[93m[WARN 21:58:26.511529][0m [Environment:161] XDG_SESSION_CLASS not set in this environment!
+[93m[WARN 21:58:26.511595][0m [Environment:179] Neither of XDG_SESSION_DESKTOP, XDG_CURRENT_DESKTOP or DESKTOP_SESSION is set in this environment!
+[93m[WARN 21:58:26.511639][0m [Environment:192] XDG_SESSION_TYPE not set in this environment!
+[93m[WARN 21:58:26.623847][0m [Environment:179] Neither of XDG_SESSION_DESKTOP, XDG_CURRENT_DESKTOP or DESKTOP_SESSION is set in this environment!
+[93m[WARN 21:58:26.678476][0m Creating surface took WAY TOO LONG (51ms), enabled downscaling for this cache!
+[93m[WARN 22:00:24.119541][0m [AbstractMain:42] Caught signal (15), exiting
+[93m[WARN 22:02:59.761569][0m [Environment:161] XDG_SESSION_CLASS not set in this environment!
+[93m[WARN 22:02:59.761614][0m [Environment:179] Neither of XDG_SESSION_DESKTOP, XDG_CURRENT_DESKTOP or DESKTOP_SESSION is set in this environment!
+[93m[WARN 22:02:59.761642][0m [Environment:192] XDG_SESSION_TYPE not set in this environment!
+[93m[WARN 22:02:59.862188][0m [Environment:179] Neither of XDG_SESSION_DESKTOP, XDG_CURRENT_DESKTOP or DESKTOP_SESSION is set in this environment!
+[93m[WARN 22:02:59.914267][0m Creating surface took WAY TOO LONG (49ms), enabled downscaling for this cache!
+[93m[WARN 22:03:25.496958][0m [AbstractMain:42] Caught signal (15), exiting
+
+(evince:27186): Gtk-WARNING **: Allocating size to EvSidebar 0x5638623bb690 without calling gtk_widget_get_preferred_width/height(). How does the code know the size to allocate?
+
+(firefox-developer-edition:24341): Gdk-CRITICAL **: gdk_window_get_device_position_double: assertion 'GDK_IS_WINDOW (window)' failed
+
+(firefox-developer-edition:24341): Gdk-CRITICAL **: gdk_window_get_device_position_double: assertion 'GDK_IS_WINDOW (window)' failed
+
+###!!! [Parent][DispatchAsyncMessage] Error: PClientSourceOp::Msg___delete__ Route error: message sent to unknown actor ID
+
+libpager-Message: Setting the pager rows returned false. Maybe the setting is not applied.
+libpager-Message: Setting the pager rows returned false. Maybe the setting is not applied.
+libpager-Message: Setting the pager rows returned false. Maybe the setting is not applied.
+libpager-Message: Setting the pager rows returned false. Maybe the setting is not applied.
+libpager-Message: Setting the pager rows returned false. Maybe the setting is not applied.
+libpager-Message: Setting the pager rows returned false. Maybe the setting is not applied.
+libpager-Message: Setting the pager rows returned false. Maybe the setting is not applied.
+libpager-Message: Setting the pager rows returned false. Maybe the setting is not applied.
+[93m[WARN 22:03:25.531118][0m [Environment:161] XDG_SESSION_CLASS not set in this environment!
+[93m[WARN 22:03:25.531172][0m [Environment:179] Neither of XDG_SESSION_DESKTOP, XDG_CURRENT_DESKTOP or DESKTOP_SESSION is set in this environment!
+[93m[WARN 22:03:25.531210][0m [Environment:192] XDG_SESSION_TYPE not set in this environment!
+[93m[WARN 22:03:25.632451][0m [Environment:179] Neither of XDG_SESSION_DESKTOP, XDG_CURRENT_DESKTOP or DESKTOP_SESSION is set in this environment!
+[93m[WARN 22:03:25.683491][0m Creating surface took WAY TOO LONG (47ms), enabled downscaling for this cache!
+[93m[WARN 22:38:29.732322][0m [PositionManager:683] Without a draw_value there is trouble ahead for 'Feh'
+[93m[WARN 22:38:29.732558][0m [PositionManager:683] Without a draw_value there is trouble ahead for 'Feh'
+[93m[WARN 22:38:34.201969][0m [PositionManager:683] Without a draw_value there is trouble ahead for 'Feh'
+[93m[WARN 22:38:34.202427][0m [PositionManager:683] Without a draw_value there is trouble ahead for 'Feh'
+[93m[WARN 22:41:15.322769][0m [PositionManager:683] Without a draw_value there is trouble ahead for 'Feh'
+[93m[WARN 22:41:15.323066][0m [PositionManager:683] Without a draw_value there is trouble ahead for 'Feh'
+[93m[WARN 23:07:53.332635][0m [PositionManager:683] Without a draw_value there is trouble ahead for 'Feh'
+[93m[WARN 23:07:53.332881][0m [PositionManager:683] Without a draw_value there is trouble ahead for 'Feh'
+[93m[WARN 23:13:14.458048][0m [PositionManager:683] Without a draw_value there is trouble ahead for 'Feh'
+[93m[WARN 23:13:14.458391][0m [PositionManager:683] Without a draw_value there is trouble ahead for 'Feh'
+[93m[WARN 16:07:10.428903][0m [PositionManager:683] Without a draw_value there is trouble ahead for 'Feh'
+[93m[WARN 16:07:10.429239][0m [PositionManager:683] Without a draw_value there is trouble ahead for 'Feh'
+[93m[WARN 16:07:10.444834][0m [PositionManager:683] Without a draw_value there is trouble ahead for 'Feh'
+[93m[WARN 16:07:10.444906][0m [PositionManager:683] Without a draw_value there is trouble ahead for 'Alacritty'
+[93m[WARN 16:07:10.445008][0m [PositionManager:683] Without a draw_value there is trouble ahead for 'Feh'
+[93m[WARN 16:07:10.445043][0m [PositionManager:683] Without a draw_value there is trouble ahead for 'Alacritty'
+[93m[WARN 16:08:20.862786][0m [AbstractMain:42] Caught signal (15), exiting
+[Parent 24341, Gecko_IOThread] WARNING: pipe error (166): Connection reset by peer: file /build/firefox-developer-edition/src/mozilla-unified/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+libpager-Message: Setting the pager rows returned false. Maybe the setting is not applied.
+libpager-Message: Setting the pager rows returned false. Maybe the setting is not applied.
+libpager-Message: Setting the pager rows returned false. Maybe the setting is not applied.
+libpager-Message: Setting the pager rows returned false. Maybe the setting is not applied.
+libpager-Message: Setting the pager rows returned false. Maybe the setting is not applied.
+libpager-Message: Setting the pager rows returned false. Maybe the setting is not applied.
+libpager-Message: Setting the pager rows returned false. Maybe the setting is not applied.
+libpager-Message: Setting the pager rows returned false. Maybe the setting is not applied.
+libpager-Message: Setting the pager rows returned false. Maybe the setting is not applied.
+libpager-Message: Setting the pager rows returned false. Maybe the setting is not applied.
+libpager-Message: Setting the pager rows returned false. Maybe the setting is not applied.
+libpager-Message: Setting the pager rows returned false. Maybe the setting is not applied.
+xfce4-panel: Fatal IO error 104 (Connection reset by peer) on X server :0.

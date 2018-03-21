@@ -5,5 +5,6 @@ headset_connected=$(~/.config/polybar/scripts/bluetooth/info.js | grep Connected
 if [ $headset_connected == 'no' ]; then
     echo 
 else
-    echo  Monster Clarity
+    # echo  Monster Clarity
+    echo 
 fi

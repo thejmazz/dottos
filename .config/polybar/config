@@ -24,7 +24,8 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #b3dfdfdf
+; background = #b3dfdfdf
+background = #ffdfdfdf
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #222
@@ -37,6 +38,188 @@ secondary = #e60053
 alert = #bd2c40
 transparent = #00ffffff
 purple = #A15FA9
+
+[bar/blocks]
+; monitor = DP1
+monitor = eDP1
+width = 100%
+height = 28
+offset-x = 0
+offset-y = 50
+
+background = ${colors.transparent}
+
+font-0 = fixed:pixelsize=11;2
+font-1 = MaterialIcons:size=16;5
+font-2 = FontAwesome:size=14;4
+
+module-margin-right = 3
+
+modules-left = bspwm-block
+modules-center = xwindow-block
+modules-right = xbacklight crypto bluetooth-block cpu-block memory-block battery-block date-block powermenu
+; modules-right = xbacklight bluetooth-block cpu-block memory-block battery-block date-block powermenu
+;
+[bar/top]
+monitor = ${env:PRIMARY_MONITOR:eDP1}
+; monitor = DP1
+; width = 100%
+; width = 2320
+; width = 1200
+; width = 1654
+; width = 1241
+width = ${env:PRIMARY_BAR_WIDTH:1200}
+height = 26
+; offset-x = 240
+; offset-x = 266
+; offset-x = 199
+offset-x = ${env:XFCE4_PANEL_WIDTH:240}
+offset-y = 0
+radius = 0.0
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+overline-size = 0
+underline-size = 0
+line-color = #f00
+
+border-size = 0
+border-color = #ff000000
+
+padding-left = 0
+padding-right = 0
+
+module-margin = 0
+module-margin-right = 3
+
+font-0 = fixed:pixelsize=11;2
+font-1 = MaterialIcons:size=16;5
+font-2 = FontAwesome:size=14;4
+
+modules-left = crypto
+; modules-center = xwindow
+; modules-right = xbacklight crypto volume bluetooth cpu memory battery temperature date powermenu
+modules-right = xbacklight volume bluetooth cpu memory battery temperature date powermenu
+
+tray-position = right
+tray-padding = 2
+;tray-transparent = true
+;tray-background = #0063ff
+
+wm-restack = bspwm
+
+[bar/blank]
+monitor = ${env:PRIMARY_MONITOR:eDP1}
+; monitor = DP1
+; width = 240
+; width = ${env:XFCE4_PANEL_WIDTH:240}
+width = 312
+; width = 266
+height = 2
+offset-x = 0
+offset-y = 50
+wm-restack = bspwm
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+modules-center = blank
+
+[bar/bottom]
+monitor = ${env:PRIMARY_MONITOR:eDP1}
+; monitor = DP1
+; width = 100%
+; width = 2320
+; width = 1200
+; width = 1654
+; width = 1241
+width = ${env:PRIMARY_BAR_WIDTH:1200}
+height = 26
+; offset-x = 240
+; offset-x = 266
+; offset-x = 199
+offset-x = ${env:XFCE4_PANEL_WIDTH:240}
+; offset-x = 0
+offset-y = 26
+radius = 0.0
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+overline-size = 0
+underline-size = 0
+line-color = #f00
+
+border-size = 0
+border-color = #ff000000
+
+padding-left = 0
+padding-right = 0
+
+module-margin = 0
+module-margin-right = 3
+
+font-0 = fixed:pixelsize=11;2
+font-1 = MaterialIcons:size=16;5
+font-2 = FontAwesome:size=14;4
+
+; modules-left = bspwm
+modules-center = xwindow
+; modules-right = xbacklight crypto volume bluetooth cpu memory battery temperature date powermenu
+; modules-right = crypto
+
+tray-position = right
+tray-padding = 2
+;tray-transparent = true
+;tray-background = #0063ff
+
+wm-restack = bspwm
+
+[bar/monitor2]
+monitor = ${env:SECONDARY_MONITOR:DP1}
+; monitor = eDP1
+;monitor = ${env:MONITOR:HDMI-1}
+width = 100%
+height = 26
+offset-x = 0
+offset-y = 0
+radius = 0.0
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+overline-size = 0
+underline-size = 0
+line-color = #f00
+
+border-size = 0
+border-color = #ff000000
+
+padding-left = 0
+padding-right = 0
+
+module-margin = 0
+module-margin-right = 3
+
+font-0 = fixed:pixelsize=11;2
+font-1 = MaterialIcons:size=16;5
+font-2 = FontAwesome:size=14;4
+
+modules-left = bspwm
+modules-center = xwindow
+; modules-right = xbacklight crypto volume bluetooth cpu memory battery temperature date powermenu
+; modules-right = crypto
+
+tray-position = right
+tray-padding = 2
+;tray-transparent = true
+;tray-background = #0063ff
+
+wm-restack = bspwm
 
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -69,7 +252,7 @@ font-2 = FontAwesome:size=14;4
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = xbacklight volume bluetooth cpu memory battery temperature date powermenu
+modules-right = xbacklight crypto volume bluetooth cpu memory battery temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -89,7 +272,15 @@ wm-restack = bspwm
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+label = %title:0:60:...%
+
+[module/xwindow-block]
+inherit = module/xwindow
+
+label-foreground = ${colors.foreground}
+label-background = ${colors.background}
+label-padding-left = 2
+label-padding-right = 2
 
 [module/filesystem]
 type = internal/fs
@@ -161,6 +352,22 @@ label-empty-padding = 2
 ;label-private = 
 ;label-private-foreground = #bd2c40
 
+[module/bspwm-block]
+inherit = module/bspwm
+
+label-focused-background = ${colors.background}
+label-focused-foreground = ${colors.foreground}
+label-empty-background = ${colors.background}
+label-empty-foreground = ${colors.foreground}
+label-occupied-background = ${colors.background}
+label-occupied-foreground = ${colors.foreground}
+
+[module/crypto]
+type = custom/script
+interval = 5
+exec = ~/.config/polybar/scripts/crypto.sh
+; format-foreground = ${colors.primary}
+
 [module/bluetooth]
 type = custom/script
 interval = 5
@@ -170,6 +377,19 @@ click-left = ~/.config/polybar/scripts/bluetooth/connect.js
 click-right = ~/.config/polybar/scripts/bluetooth/disconnect.js
 
 format-foreground = ${colors.primary}
+
+[module/blank]
+type = custom/script
+interval = 100
+exec = ~/.config/polybar/scripts/blank.sh
+
+[module/bluetooth-block]
+inherit = module/bluetooth
+
+label-foreground = ${colors.primary}
+label-background = ${colors.background}
+label-padding-left = 1
+label-padding-right = 1
 
 [module/mpd]
 type = internal/mpd
@@ -209,14 +429,32 @@ bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
 
-[module/cpu]
+[module/cpu-base]
 type = internal/cpu
 interval = 2
 
 format-prefix = 
+label = %percentage%%
+
+[module/cpu]
+inherit = module/cpu-base
+
 format-prefix-padding-right = 1
 format-prefix-foreground = ${colors.primary}
-label = %percentage%%
+
+[module/cpu-block]
+inherit = module/cpu
+
+format-prefix-padding-left = 1
+format-prefix-padding-right = 1
+format-prefix-foreground = ${colors.background}
+format-prefix-background = ${colors.primary}
+
+label-padding-left = 2
+label-padding-right = 2
+label-background = ${colors.background}
+label-foreground = ${colors.foreground}
+
 
 [module/memory]
 type = internal/memory
@@ -227,6 +465,19 @@ format-prefix-padding-right = 1
 format-prefix-foreground = ${colors.primary}
 
 label = %percentage_used%%
+
+[module/memory-block]
+inherit = module/memory
+
+format-prefix-padding-left = 1
+format-prefix-padding-right = 1
+format-prefix-foreground = ${colors.background}
+format-prefix-background = ${colors.primary}
+
+label-padding-left = 2
+label-padding-right = 2
+label-background = ${colors.background}
+label-foreground = ${colors.foreground}
 
 [module/wlan]
 type = internal/network
@@ -282,6 +533,19 @@ format-prefix-foreground = ${colors.primary}
 
 label = %date%%time%
 
+[module/date-block]
+inherit = module/date
+
+format-prefix-padding-left = 1
+format-prefix-padding-right = 1
+format-prefix-foreground = ${colors.background}
+format-prefix-background = ${colors.primary}
+
+label-padding-left = 2
+label-padding-right = 2
+label-background = ${colors.background}
+label-foreground = ${colors.foreground}
+
 [module/volume]
 type = internal/volume
 
@@ -314,6 +578,19 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
+[module/volume-block]
+inherit = module/volume
+
+ramp-volume-padding-left = 1
+ramp-volume-padding-right = 1
+ramp-volume-foreground = ${colors.background}
+ramp-volume-background = ${colors.primary}
+
+label-volume-foreground = ${colors.foreground}
+label-volume-background = ${colors.background}
+label-volume-padding-left = 2
+label-volume-padding-right = 2
+
 [module/battery]
 type = internal/battery
 battery = BAT0
@@ -345,6 +622,17 @@ animation-charging-foreground = ${colors.primary}
 animation-charging-framerate = 750
 animation-charging-padding-right = 1
 
+[module/battery-block]
+inherit = module/battery
+
+format-full-prefix-foreground = ${colors.background}
+format-full-prefix-background = ${colors.primary}
+format-full-prefix-padding-right = 1
+format-full-prefix-padding-left = 1
+
+format-full-foreground = ${colors.foreground}
+format-full-background = ${colors.background}
+
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
@@ -362,7 +650,6 @@ ramp-2 = 
 
 ramp-padding-right = 1
 ramp-foreground = ${colors.primary}
-
 
 [module/powermenu]
 type = custom/menu
