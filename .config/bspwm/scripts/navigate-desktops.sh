@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# https://stackoverflow.com/questions/16854280/a-variable-modified-inside-a-while-loop-is-not-remembered
+
 direction=$1
 
 property="/plugins/plugin-2/rows"
@@ -26,7 +28,7 @@ if [[ $direction == "down" ]]; then
     temp=$(( $current_index + $width ))
     [[ $temp -le $total ]] && wanted_index=$(( $current_index + $width ))
 elif [[ $direction == "up" ]]; then
-    [[ $current_index > $width ]] && wanted_index=$(( $current_index - $width ))
+    [[ $current_index -ge $width ]] && wanted_index=$(( $current_index - $width ))
 fi
 
 echo wanted_index: $wanted_index
