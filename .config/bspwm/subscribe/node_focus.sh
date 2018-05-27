@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# needs jq and chwb
+# needs jq, chwb, xprop
 
 bspc subscribe node_focus | while read -r action monitor_id desktop_id node_id; do
     # echo Action: $action
@@ -16,6 +16,11 @@ bspc subscribe node_focus | while read -r action monitor_id desktop_id node_id; 
             chwb -c 0x464646 $node_id
             # Flashes less?
             # bspc config focused_border_color "#464646"
+            ;;
+        "Firefox Developer Edition")
+            wm_name=$(xprop -id $node_id WM_NAME)
+            echo $wm_name | grep 'Google Keep' && \
+                chwb -c 0xFFBB00 $node_id
             ;;
         *)
             # Reset to default focused_border_color
