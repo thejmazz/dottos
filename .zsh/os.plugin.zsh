@@ -24,6 +24,8 @@ function ossh {
 
     # TODO get bastion name somehow
     bastion_name=bastion
+    bastion_user=${2:-core}
+    target_user=${3:-core}
 
     # Assumes one subnet for private ips
     subnet_prefix=$(
@@ -56,7 +58,33 @@ function ossh {
     bastion_ip=$(echo $bastion_ips | grep $floating_ip_prefix)
 
     # TODO use labels to determine core vs ubuntu, etc
-    ssh core@$private_ip -J core@$bastion_ip
+    ssh $target_user@$private_ip -J $bastion_user@$bastion_ip
+}
+
+# Retrieves an un-associated floating ip if available, or allocates 1 from pool
+function os_get_fip () {
+    # TODO store pool name somewhere alongside project configuration
+    # NOTE `openstack floating ip pool list` not working
+    pool=${1:-"Kidnet External"}
+
+    fip=$(
+        openstack floating ip list --format value -c 'Floating IP Address' -c 'Fixed IP Address' | \
+        awk '/None/{print $1}' | \
+        head -n 1
+    )
+
+    if [[ $(echo $fip) == "" ]]; then
+        fip=$(openstack floating ip create --format value -c 'floating_ip_address' 'Kidnet External')
+    fi
+
+    if [[ "$?" != "0" ]]; then
+        echo "Error reqesting floating ip, you have likely exhausted the pool"
+    fi
+
+    if [[ "$fip" != "" ]]; then
+        echo $fip
+    fi
+
 }
 
 alias ossafip="openstack server add floating ip"
