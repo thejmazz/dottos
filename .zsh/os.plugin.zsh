@@ -74,7 +74,7 @@ function os_get_fip () {
     )
 
     if [[ $(echo $fip) == "" ]]; then
-        fip=$(openstack floating ip create --format value -c 'floating_ip_address' 'Kidnet External')
+        fip=$(openstack floating ip create --format value -c 'floating_ip_address' "$pool")
     fi
 
     if [[ "$?" != "0" ]]; then
@@ -84,7 +84,15 @@ function os_get_fip () {
     if [[ "$fip" != "" ]]; then
         echo $fip
     fi
+}
 
+# deletes all un-assigned floating ips
+function os_clean_fips () {
+    fips=( $(openstack floating ip list --format value -c 'Floating IP Address' -c 'Fixed IP Address' | awk '/None/{print $1}') )
+
+    for fip in "${fips[@]}"; do
+        openstack floating ip delete $fip && echo "Deleted $fip"
+    done
 }
 
 alias ossafip="openstack server add floating ip"
