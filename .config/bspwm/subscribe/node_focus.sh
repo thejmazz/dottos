@@ -19,8 +19,8 @@ bspc subscribe node_focus | while read -r action monitor_id desktop_id node_id; 
             ;;
         "Firefox Developer Edition")
             wm_name=$(xprop -id $node_id WM_NAME)
-            echo $wm_name | grep 'Google Keep' && \
-                chwb -c 0xFFBB00 $node_id
+            echo $wm_name | grep 'Google Keep' && chwb -c 0xFFBB00 $node_id
+            echo $wm_name | grep 'Google Play Music' && chwb -c 0xFF5722 $node_id
             ;;
         *)
             # Reset to default focused_border_color
