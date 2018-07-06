@@ -95,7 +95,7 @@ PERL_LOCAL_LIB_ROOT="/home/julian/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_
 PERL_MB_OPT="--install_base \"/home/julian/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/julian/perl5"; export PERL_MM_OPT;
 
-export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
+export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
 
 export NVM_DIR="$HOME/.nvm"
 alias nvm-init="source $NVM_DIR/nvm.sh"
