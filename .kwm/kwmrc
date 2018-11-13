@@ -90,8 +90,16 @@ Override default settings for space 1 on screen 0
    kwmc config space 0 1 padding 100 100 100 100
    kwmc config space 0 1 gap 40 40
 */
+/* top bottom left right */
+
+# todo set this based on screen size
+# kwmc config space 0 1 padding 130 180 115 115
+# kwmc config space 0 2 padding 130 180 115 115
+
 kwmc config space 0 3 mode monocle
 kwmc config space 0 3 padding 150 150 150 150
+
+# kwmc config space 1 1 padding 20 400 20 20
 
 
 /*
@@ -137,12 +145,12 @@ kwmc rule owner="Mail" properties={window="3"}
 
 # Enable border for focused window
 kwmc config border focused off
-kwmc config border focused size 2
+kwmc config border focused size 3
 kwmc config border focused color 0xFFE74C3C
 kwmc config border focused radius 5
 
 # Enable border for marked window
 kwmc config border marked on
-kwmc config border marked size 2
+kwmc config border marked size 3
 kwmc config border marked color 0xFFCC5577
 kwmc config border marked radius 6
