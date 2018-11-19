@@ -1,0 +1,27 @@
+---
+kind: Pipeline
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: build
+  image: docker:18.06
+  commands:
+  - IMAGE=$REGISTRY/$REPO:$TAG
+  - echo $IMAGE
+  - cat Dockerfile
+  - docker build -t $IMAGE .
+  environment:
+    REGISTRY: registry.jmazz.ca
+    REPO: console
+    Tag: latest
+  volumes:
+  - name: docker
+    path: /var/lib/docker
+
+volumes:
+- name: docker
+
+...
