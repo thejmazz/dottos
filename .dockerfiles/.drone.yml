@@ -1,0 +1,62 @@
+---
+kind: Pipeline
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: build-registry.jmazz.ca-tmux-2.8
+  image: docker:18.06
+  commands:
+  - IMAGE=local-$REPO:$TAG
+  - echo $IMAGE
+  - cd tmux
+  - cat Dockerfile
+  - docker build -t $IMAGE .
+  environment:
+    REGISTRY: registry.jmazz.ca
+    REPO: tmux
+    TAG: 2.8
+  volumes:
+  - name: docker
+    path: /var/run/docker.sock
+
+- name: build-registry.jmazz.ca-neovim-v0.3.1
+  image: docker:18.06
+  commands:
+  - IMAGE=local-$REPO:$TAG
+  - echo $IMAGE
+  - cd neovim
+  - cat Dockerfile
+  - docker build -t $IMAGE .
+  environment:
+    REGISTRY: registry.jmazz.ca
+    REPO: neovim
+    TAG: v0.3.1
+  volumes:
+  - name: docker
+    path: /var/run/docker.sock
+
+- name: build-registry.jmazz.ca-console-latest
+  image: docker:18.06
+  commands:
+  - IMAGE=local-$REPO:$TAG
+  - echo $IMAGE
+  - cd console
+  - cat Dockerfile
+  - docker build -t $IMAGE .
+  environment:
+    REGISTRY: registry.jmazz.ca
+    REPO: console
+    TAG: latest
+  volumes:
+  - name: docker
+    path: /var/run/docker.sock
+
+volumes:
+- name: docker
+  host:
+    path: /var/run/docker.sock
+
+...
