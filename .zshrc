@@ -101,6 +101,7 @@ export NVM_DIR="$HOME/.nvm"
 alias nvm-init="source $NVM_DIR/nvm.sh"
 [[ "`uname`" != "Darwin" ]] && [[ -f $NVM_DIR/nvm.sh ]] && source $NVM_DIR/nvm.sh
 
+[[ "$TMUX_PROMPT" == "1" ]] && source ~/.zsh/tmux-prompt.zsh
+
 # Needs to be at end
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
