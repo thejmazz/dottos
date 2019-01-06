@@ -1,0 +1,17 @@
+---
+- name: Download yadm
+  git:
+    dest: /usr/local/src/yadm
+    repo: https://github.com/TheLocehiliosan/yadm.git
+    version: "{{ yadm_version }}"
+- name: Install yadm script
+  copy:
+    remote_src: yes
+    src: /usr/local/src/yadm/yadm
+    dest: /usr/local/bin/yadm
+    mode: 0755
+- name: Install yadm manual
+  copy:
+    remote_src: yes
+    src: /usr/local/src/yadm/yadm.1
+    dest: /usr/local/share/man/man1/yadm.1

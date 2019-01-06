@@ -1,0 +1,31 @@
+---
+# https://github.com/geerlingguy/ansible-role-docker
+- name: Install docker apt requirements
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+- name: Add docker apt key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
+- name: Add Docker repository
+  apt_repository:
+    update_cache: true
+    repo: "deb [arch={{ docker_apt_arch }}] https://download.docker.com/linux/{{ ansible_distribution|lower }} {{ ansible_distribution_release }} {{ docker_apt_release_channel }}"
+- name: Install docker
+  apt:
+    name: "{{ docker_apt_package }}={{ docker_apt_package_version }}"
+- name: Ensure Docker service enabled
+  systemd:
+    name: docker
+    state: started
+    enabled: true
+- name: Add user(s) to docker group
+  user:
+    name: "{{ item }}"
+    groups: docker
+    append: true
+  with_items: "{{ docker_users }}"

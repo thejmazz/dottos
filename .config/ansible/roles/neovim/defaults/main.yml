@@ -1,0 +1,4 @@
+---
+neovim_version: v0.3.1
+neovim_install_python3_package: true
+neovim_users: [ 'root', 'ubuntu' ]

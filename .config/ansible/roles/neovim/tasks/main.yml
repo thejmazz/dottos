@@ -1,0 +1,65 @@
+---
+- name: Install neovim dependencies
+  apt:
+    name:
+      - git
+      - ca-certificates
+      - curl
+      - ninja-build
+      - gettext
+      - libtool
+      - libtool-bin
+      - autoconf
+      - automake
+      - cmake
+      - g++
+      - pkg-config
+      - unzip
+
+- name: Install python3 for neovim
+  apt:
+    name:
+      - python3
+      - python3-pip
+  when: neovim_install_python3_package
+- name: Install python-setuptools so we can choose pip3 when using python2 interpreter
+  # See: https://github.com/ansible/ansible/issues/47361
+  apt:
+    name:
+      - python-setuptools
+  when: neovim_install_python3_package
+- name: Pip install neovim
+  pip:
+    name: neovim
+    executable: pip3
+  when: neovim_install_python3_package
+
+- name: Download neovim src
+  git:
+    dest: /usr/local/src/neovim
+    recursive: yes
+    repo: https://github.com/neovim/neovim.git
+    version: "{{ neovim_version }}"
+- name: Compile neovim
+  environment:
+    CMAKE_BUILD_TYPE: Release
+  command: make
+  args:
+    chdir: /usr/local/src/neovim
+    creates: /usr/local/src/neovim/build/bin/nvim
+- name: Install neovim
+  command: make install
+  args:
+    chdir: /usr/local/src/neovim
+    creates: /usr/local/bin/nvim
+
+# TODO check how this works with more remote plugins (e.g. node)
+# E.g. force run if a task to install node changed?
+- name: UpdateRemotePlugins
+  command: nvim '+UpdateRemotePlugins' '+qall'
+  args:
+    creates: "{{ '/home/' + item if item != 'root' else '/root' }}/.local/share/nvim/rplugin.vim"
+  register: update_remote_plugins
+  become: yes
+  become_user: "{{ item }}"
+  with_items: "{{ neovim_users }}"

@@ -1,0 +1,28 @@
+---
+- name: Install python 2
+
+  hosts: all
+  become: yes
+  become_user: root
+
+  # this is so that we can install python 2 via raw ssh
+  gather_facts: false
+
+  pre_tasks:
+    # See: https://gist.github.com/gwillem/4ba393dceb55e5ae276a87300f6b8e6f
+    - name: Install python 2 in case not available
+      raw: test -e /usr/bin/python || (apt update -y && apt install -y python-minimal)
+      register: output
+      changed_when: output.stdout != ""
+
+- hosts: all
+  become: yes
+  become_user: root
+
+  tasks:
+    - include_role:
+        name: docker
+    - include_role:
+        name: tmux
+    - include_role:
+        name: neovim

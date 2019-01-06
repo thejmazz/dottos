@@ -1,0 +1,38 @@
+---
+- name: Install tmux dependencies
+  apt:
+    name:
+      - git
+      - ca-certificates
+      - build-essential
+      - libevent-dev
+      - libncurses-dev
+      - autotools-dev
+      - automake
+      - autoconf
+      - pkg-config
+- name: Download tmux src
+  git:
+    dest: /usr/local/src/tmux
+    repo: https://github.com/tmux/tmux.git
+    version: "{{ tmux_version }}"
+- name: Autogen tmux
+  command: sh autogen.sh
+  args:
+    chdir: /usr/local/src/tmux
+    creates: /usr/local/src/tmux/etc
+- name: Configure tmux
+  command: /usr/local/src/tmux/configure
+  args:
+    chdir: /usr/local/src/tmux
+    creates: /usr/local/src/tmux/Makefile
+- name: Compile tmux
+  command: make
+  args:
+    chdir: /usr/local/src/tmux
+    creates: /usr/local/src/tmux/tmux
+- name: Install tmux
+  command: make install
+  args:
+    chdir: /usr/local/src/tmux
+    creates: /usr/local/bin/tmux
