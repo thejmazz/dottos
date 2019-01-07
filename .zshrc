@@ -34,7 +34,6 @@ precmd() {
 
 [[ `hostname` == "air" ]] && source $HOME/.zsh/ensure-enabled-tmux.sh
 
-# source <(antibody init)
 # antibody bundle mafredri/zsh-async
 # antibody bundle sindresorhus/pure
 
@@ -103,5 +102,7 @@ alias nvm-init="source $NVM_DIR/nvm.sh"
 
 [[ "$TMUX_PROMPT" == "1" ]] && source ~/.zsh/tmux-prompt.zsh
 
-# Needs to be at end
-source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source <(antibody init)
+antibody bundle zsh-users/zsh-autosuggestions
+# MUST be last plugin
+antibody bundle zsh-users/zsh-syntax-highlighting
