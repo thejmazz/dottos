@@ -36,3 +36,9 @@
   args:
     chdir: /usr/local/src/tmux
     creates: /usr/local/bin/tmux
+
+- name: Install tmux plugin manager
+  git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: "/home/{{ item }}/.tmux/plugins/tpm"
+  with_items: "{{ tpm_users }}"

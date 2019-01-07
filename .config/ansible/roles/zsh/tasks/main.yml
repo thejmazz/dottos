@@ -2,6 +2,11 @@
 - name: Install zsh via apt
   apt:
     name: zsh
+- name: Set user's shells to zsh
+  user:
+    name: "{{ item }}"
+    shell: /bin/zsh
+  with_items: "{{ zsh_users }}"
 - name: Ensure /opt/antibody exists
   file:
     state: directory

@@ -25,4 +25,8 @@
     - include_role:
         name: tmux
     - include_role:
+        name: zsh
+    - include_role:
+        name: yadm
+    - include_role:
         name: neovim
