@@ -1,4 +1,5 @@
 ---
+- setup: {}
 # https://github.com/geerlingguy/ansible-role-docker
 - name: Install docker apt requirements
   apt:
@@ -29,3 +30,9 @@
     groups: docker
     append: true
   with_items: "{{ docker_users }}"
+
+- name: Install docker-compose
+  get_url:
+    url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}"
+    dest: /usr/local/bin/docker-compose
+    mode: 0755

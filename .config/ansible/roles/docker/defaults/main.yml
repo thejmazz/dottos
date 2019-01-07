@@ -5,3 +5,4 @@ docker_apt_package: docker-ce
 # See possible versions with `apt cache madison search docker-ce`
 docker_apt_package_version: 18.06.*
 docker_users: [ 'ubuntu' ]
+docker_compose_version: 1.23.2
