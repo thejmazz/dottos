@@ -1,0 +1,23 @@
+---
+- name: Install zsh via apt
+  apt:
+    name: zsh
+- name: Ensure /opt/antibody exists
+  file:
+    state: directory
+    path: /opt/antibody
+    owner: root
+    group: root
+    mode: 0755
+- setup: {}
+- name: Download GitHub release
+  unarchive:
+    remote_src: yes
+    src: "https://github.com/getantibody/antibody/releases/download/{{ antibody_version }}/antibody_{{ ansible_system }}_{{ ansible_architecture }}.tar.gz"
+    dest: /opt/antibody
+- name: Install via symlink
+  file:
+    state: link
+    dest: /usr/local/bin/antibody
+    src: /opt/antibody/antibody
+    mode: 0755
