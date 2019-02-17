@@ -58,7 +58,9 @@ function zle-line-init zle-keymap-select {
     # MYRIGHT="$md_folder %~"
     # MYRIGHT="[  %~]"
     MYRIGHT="%~"
-    [[ `print -P "%~"` == "~" ]] && MYRIGHT=""
+    # [[ `print -P "%~"` == "~" ]] && MYRIGHT=""
+    # [[ `print -P "%~"` == "~" ]] && MYRIGHT=""
+    [[ `print -P "%~"` == "~" ]] && MYRIGHT=""
     # TODO how to use environment variables for icons in zsh prompt?
     # [[ ! -z "${vcs_info_msg_0_}" ]] && MYRIGHT="[$oct_git_branch ${vcs_info_msg_0_}] $MYRIGHT"
     [[ ! -z "${vcs_info_msg_0_}" ]] && MYRIGHT="[ ${vcs_info_msg_0_}] $MYRIGHT"
@@ -101,6 +103,8 @@ alias nvm-init="source $NVM_DIR/nvm.sh"
 [[ "`uname`" != "Darwin" ]] && [[ -f $NVM_DIR/nvm.sh ]] && source $NVM_DIR/nvm.sh
 
 [[ "$TMUX_PROMPT" == "1" ]] && source ~/.zsh/tmux-prompt.zsh
+
+[[ -d "/opt/google-cloud-sdk/bin" ]] && export PATH="$PATH:/opt/google-cloud-sdk/bin"
 
 source <(antibody init)
 antibody bundle zsh-users/zsh-autosuggestions

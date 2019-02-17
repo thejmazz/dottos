@@ -34,6 +34,11 @@ Plug 'tmux-plugins/vim-tmux'                                     " For .tmux.con
 Plug 'hashivim/vim-terraform'                                    " basic vim/terraform integration
 Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }          " Markdown for Vim: a complete environment to create Markdown files with a syntax highlight that doesn't suck!
 Plug 'google/vim-jsonnet'
+" Plug 'manabuishii/vim-cwl'
+
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+Plug 'Shougo/denite.nvim'
 
 Plug 'fneu/breezy'                                               " Colorscheme inspired by KDE breezy template
 Plug 'davidklsn/vim-sialoquent'
@@ -97,10 +102,10 @@ let g:netrw_banner = 0              " Hide banner
 let g:netrw_winsize = 25            " Set width to 25%
 
 " === Colorscheme ===
-if !empty($DISPLAY)
+" if !empty($DISPLAY)
     set background=dark
     colorscheme gruvbox
-endif
+" endif
 
 let g:gruvbox_contrast_dark = 'soft'
 let g:gitgutter_override_sign_column_highlight = 0
@@ -147,6 +152,8 @@ au Filetype jsonnet setl sw=2 sts=2 et
 
 " === autocmds ===
 autocmd BufWritePre * StripWhitespace " see g:better_whitespace_filetypes_blacklist for exceptions
+
+au BufRead,BufNewFile *.cwl set filetype=yaml
 
 " === Key Bindings ===
 let mapleader="\<SPACE>"
