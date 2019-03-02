@@ -20,14 +20,14 @@ RUN useradd \
 
 # env as well? arg?
 LABEL nix_version=2.2.1
-USER gitpod
 RUN mkdir /opt/nix \
     && curl -fsSL nixos.org/nix/install /opt/nix/install-nix-2.2.1 \
     && curl -fsSL nixos.org/nix/install.sig /opt/nix/install-nix-2.2.1.sig \
     && gpg2 --recv-keys B541D55301270E0BCF15CA5D8170B4726D7198DE \
-    && gpg2 --verify /opt/nix/install-nix-2.2.1.sig \
-    && sh /opt/nix/install-nix-2.2.1
+    && gpg2 --verify /opt/nix/install-nix-2.2.1.sig
 
+USER gitpod
+RUN sh /opt/nix/install-nix-2.2.1
 
 
 USER root
