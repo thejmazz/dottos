@@ -29,6 +29,7 @@ RUN mkdir /opt/nix \
     && gpg2 --verify /opt/nix/install-nix-2.2.1.asc
 
 USER gitpod
+ENV USER gitpod
 RUN sh /opt/nix/install-nix-2.2.1
 
 
