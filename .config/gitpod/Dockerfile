@@ -20,12 +20,13 @@ RUN useradd \
     && sed -i.bkp -e 's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' /etc/sudoers
 
 # env as well? arg?
+# TODO verify sha256sum
 LABEL nix_version=2.2.1
 RUN mkdir /opt/nix \
-    && curl -fsS https://nixos.org/nix/install /opt/nix/install-nix-2.2.1 \
-    && curl -fsS https://nixos.org/nix/install.sig /opt/nix/install-nix-2.2.1.sig \
+    && curl -fsSL nixos.org/releases/nix/nix-2.2.1/install -o /opt/nix/install-nix-2.2.1 \
+    && curl -fsSL nixos.org/releases/nix/nix-2.2.1/install.asc -o /opt/nix/install-nix-2.2.1.asc \
     && gpg2 --recv-keys B541D55301270E0BCF15CA5D8170B4726D7198DE \
-    && gpg2 --verify /opt/nix/install-nix-2.2.1.sig
+    && gpg2 --verify /opt/nix/install-nix-2.2.1.asc
 
 USER gitpod
 RUN sh /opt/nix/install-nix-2.2.1
