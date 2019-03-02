@@ -1,3 +1,6 @@
-image: ubuntu:18.04
+image:
+  file: .config/gitpod/Dockerfile
+  context: .config/gitpod
 ports:
   - port: 3000
+    onOpen: open-preview
