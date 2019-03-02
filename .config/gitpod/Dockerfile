@@ -1,3 +1,4 @@
+# cannot copy over 'gitpod-layer' because debian vs ubuntu?
 FROM ubuntu:18.04
 
 RUN apt update \
@@ -13,5 +14,5 @@ RUN useradd \
     --create-home \
     --home-dir /home/gitpod \
     --shell /bin/bash \
-    jmazz \
+    gitpod \
     && sed -i.bkp -e 's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' /etc/sudoers
