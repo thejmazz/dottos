@@ -4,6 +4,7 @@ RUN apt update \
     && apt install -y --no-install-recommends \
     sudo \
     curl \
+    gnupg2 \
     && rm -rf /var/lib/apt/lists/*
 
 # Both username 'gitpod' and uid 33333 appear to be required
@@ -17,4 +18,18 @@ RUN useradd \
     gitpod \
     && sed -i.bkp -e 's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' /etc/sudoers
 
-# Gitpod adds cacerts?
+# env as well? arg?
+LABEL nix_version=2.2.1
+USER gitpod
+RUN mkdir /opt/nix \
+    && curl -fsSL nixos.org/nix/install /opt/nix/install-nix-2.2.1 \
+    && curl -fsSL nixos.org/nix/install.sig /opt/nix/install-nix-2.2.1.sig \
+    && gpg2 --recv-keys B541D55301270E0BCF15CA5D8170B4726D7198DE \
+    && gpg2 --verify /opt/nix/install-nix-2.2.1.sig \
+    && sh /opt/nix/install-nix-2.2.1
+
+
+
+USER root
+
+# Gitpod layer adds cacerts?
