@@ -51,3 +51,4 @@ brew "koekeishiya/formulae/skhd"
 brew "koekeishiya/formulae/yabai"
 
 mas "Bear", id: 1091189122
+maz "ZoomNotes Desktop", id: 986761220
