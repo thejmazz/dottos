@@ -7,12 +7,14 @@ unsetopt beep
 bindkey -v
 bindkey '^R' history-incremental-search-backward
 
+zstyle ':completion:*' menu select
+
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '$HOME/.zshrc'
 
 autoload -Uz compinit
-compinit
+compinit -u
 
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
@@ -96,13 +98,26 @@ PERL_MM_OPT="INSTALL_BASE=/home/julian/perl5"; export PERL_MM_OPT;
 
 export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
 
+export EDITOR=nvim
+
 export NVM_DIR="$HOME/.nvm"
 alias nvm-init="source $NVM_DIR/nvm.sh"
 [[ "`uname`" != "Darwin" ]] && [[ -f $NVM_DIR/nvm.sh ]] && source $NVM_DIR/nvm.sh
 
 [[ "$TMUX_PROMPT" == "1" ]] && source ~/.zsh/tmux-prompt.zsh
 
+[[ -x "$(command -v kubectl)" ]] && source <(kubectl completion zsh)
+
+export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
+
 source <(antibody init)
 antibody bundle zsh-users/zsh-autosuggestions
-# MUST be last plugin
+antibody bundle docker/cli path:contrib/completion/zsh kind:fpath
+antibody bundle docker/compose path:contrib/completion/zsh kind:fpath
+# Must be sourced after all custom widgets have been created (i.e., after all
+# zle -N calls and after running compinit). Widgets created later will work,
+# but will not update the syntax highlighting.
 antibody bundle zsh-users/zsh-syntax-highlighting
+
+# Need this for autocompletes that come from antibody to work
+compinit -i
