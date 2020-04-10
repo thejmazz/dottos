@@ -32,7 +32,7 @@ Plug 'mxw/vim-jsx'                                               " JSX syntax hi
 Plug 'elzr/vim-json', { 'for': 'json' }                          " Better JSON
 Plug 'tmux-plugins/vim-tmux'                                     " For .tmux.conf
 Plug 'hashivim/vim-terraform'                                    " basic vim/terraform integration
-Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }          " Markdown for Vim: a complete environment to create Markdown files with a syntax highlight that doesn't suck!
+" Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }          " Markdown for Vim: a complete environment to create Markdown files with a syntax highlight that doesn't suck!
 Plug 'google/vim-jsonnet'
 
 Plug 'fneu/breezy'                                               " Colorscheme inspired by KDE breezy template
@@ -58,7 +58,7 @@ let g:calendar_google_task = 1
 
 let g:deoplete#enable_at_startup = 1
 
-if !empty($DISPLAY)
+" if !empty($DISPLAY)
     let g:lightline = {
         \ 'colorscheme': 'gruvbox',
         \ 'tabline': {
@@ -71,7 +71,7 @@ if !empty($DISPLAY)
         \ },
         \ 'tabline_subseparator': { 'left': '', 'right': '' }
         \ }
-endif
+" endif
 
 let g:NERDTreeWinPos = "right"
 " let g:NERDTreeDirArrowExpandable =  '-<' "'|>'
@@ -97,14 +97,14 @@ let g:netrw_banner = 0              " Hide banner
 let g:netrw_winsize = 25            " Set width to 25%
 
 " === Colorscheme ===
-if !empty($DISPLAY)
+" if !empty($DISPLAY)
     set background=dark
     colorscheme gruvbox
-endif
+" endif
 
 let g:gruvbox_contrast_dark = 'soft'
 let g:gitgutter_override_sign_column_highlight = 0
-highlight Normal guibg=NONE ctermbg=NONE
+" highlight Normal guibg=NONE ctermbg=NONE
 highlight VertSplit guibg=NONE guifg=#282c33
 highlight CursorLineNR guibg=#ff0000
 highlight SignColumn guibg=NONE
